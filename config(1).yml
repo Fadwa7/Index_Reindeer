@@ -1,0 +1,9 @@
+##Results folder
+
+
+
+RESULTS: "/home/fadwa_el_khaddar/Results/"
+SRA_FILE_ID: "/home/fadwa_el_khaddar/list.csv"
+
+KMER_SIZE: 21
+ABUNDANCE_MIN: 2 
