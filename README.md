@@ -10,7 +10,7 @@ Téléchargez le contenu du référentiel GitHub sur votre machine en utilisant 
 
 ```bash
 git clone https://github.com/Fadwa7/GCP.git
-
+```
 
 ## Installation des outils
 
