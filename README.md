@@ -1,19 +1,20 @@
 # GCP: Traitement des fichiers SRR
 
-Projet du traitement des données SRR dans une instance VM sur Google Cloud Plateform.
+Ce projet se concentre sur le traitement des données SRR au sein d'une instance VM sur Google Cloud Platform.
 
-## Importation de repertoire  
-Connectez-vous sur votre VM.
+## Importation du répertoire
 
-Téléchargez le contenu du gitHub sur votre machine [git clone](https://github.com/Fadwa7/GCP.git).
+Connectez-vous à votre instance VM.
+
+Téléchargez le contenu du référentiel GitHub sur votre machine en utilisant la commande `git clone` :
 
 ```bash
-https://github.com/Fadwa7/GCP.git
-```
+git clone https://github.com/Fadwa7/GCP.git
+
 
 ## Installation des outils
 
-Pour installer les outils nécessaire dans votre machine virutelle, exécutez ce script, en respectant l'ordre des fichiers. 
+Pour configurer les outils requis dans votre machine virtuelle, exécutez le script suivant dans l'ordre des fichiers :
 
 ```bash
 ./installation.sh   envs/bcalm.yml   envs/sratoolkit.yml   envs/cutadapt.yml   envs/snakemake.yml
@@ -21,25 +22,28 @@ Pour installer les outils nécessaire dans votre machine virutelle, exécutez ce
 
 ## Exécution de Snakemake 
 
-### Activation de l'environnement conda du Snakemake 
+### Activation de l'environnement conda pour Snakemake 
+
+Activez l'environnement conda pour Snakemake en utilisant la commande :
 
 ```bash
 source activate snakemake
 ```
 ### Modification des paramètres sur config.yml 
 
-Veuillez communiquer le numéro d'accesion de BioProject dont vous êtes intéressés ainsi que le chemin vers le dossier où les résultats seront stockés. 
+Modifiez le fichier config.yml pour spécifier le numéro d'accès au BioProject qui vous intéresse ainsi que le chemin vers le dossier où les résultats doivent être stockés :
 
 ```bash
 nano config.yml
 ```
 ### Exécution du Snakemake 
-
+Naviguez vers le répertoire du projet, puis exécutez Snakemake :
 ```bash
 cd GCP
 snakemake -s snakefile --cores $nbcores
 ```
 ## Résultats:
+Une fois terminé, les résultats du traitement seront organisés de la manière suivante : 
 
 ```bash
 .
