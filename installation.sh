@@ -1,9 +1,6 @@
 #!/bin/bash
 
-bcalm=$1
-sratoolkit=$2
-cutadapt=$3
-snakemake=$4
+directory=$1
 
 ## BCALM
 echo "####"
@@ -39,6 +36,14 @@ source ~/.bashrc
 conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
 source ~/.bashrc
 
+## INSTALLATION de CONDA
+echo "####"
+echo " "
+echo "Installation de Esearch NCBI"
+echo " "
+echo " "
+
+cd
 sudo apt-get -y update
 sudo apt -y install ncbi-entrez-direct
 echo 'yes' | sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
@@ -47,54 +52,14 @@ cd
 source .bashrc 
 
 
+## Conda environement : 
 
-echo "####"
-echo " "
-echo "BCALM Installation"
-echo " "
-echo " " 
-
-
-conda env create -f $bcalm
-
-
-
-## SRAtoolkit : 
-echo "####"
-echo " "
-echo "SRAtoolkit Installation"
-echo " "
-echo " " 
- 
-conda env create -f $sratoolkit
-
-
-
-## CUTADAPT
-echo " " 
-echo "####"
-echo " " 
-echo "CUTADAPT Installation "
-echo " " 
-echo " " 
-
-
-conda env create -f $cutadapt
-
-
-echo "Installation DONE !"
-
-
-## Snakemake
-echo " " 
-echo "####"
-echo " " 
-echo "SNAKEMAKE Installation "
-echo " " 
-echo " " 
-
-
-conda env create -f $snakemake
+for file in "$directory"/*.yml; do 
+        filename=$(basename -- "$file")
+        extension="${filename##*.}"
+        filename="${filename%.*}"
+        conda env create -f $file 
+done
 
 
 echo " " 
