@@ -14,11 +14,12 @@ git clone https://github.com/Fadwa7/GCP.git
 
 ## Installation des outils
 
-Pour configurer les outils requis dans votre machine virtuelle, exécutez le script suivant dans l'ordre des fichiers :
+Pour configurer les outils requis dans votre machine virtuelle, exécutez le script suivant en donnant le chemin vers le répertoire contenant les fichier yml.
 
 ```bash
-./installation.sh   envs/bcalm.yml   envs/sratoolkit.yml   envs/cutadapt.yml   envs/snakemake.yml
+sh installation.sh  ~/GCP/envs
 ```
+#### !!!!!! Il vous serait peut être demandé de vous reconnecter une deuxième fois à la machine virtuelle !!! C'est normal :)
 
 ## Exécution de Snakemake 
 
