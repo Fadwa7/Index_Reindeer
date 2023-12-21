@@ -39,9 +39,6 @@ source ~/.bashrc
 conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
 source ~/.bashrc
 
-# Activons un environnement Conda ici (remplacez 'nom_env' par le nom de votre environnement)
-conda activate nom_env
-
 sudo apt-get -y update
 sudo apt -y install ncbi-entrez-direct
 echo 'yes' | sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
