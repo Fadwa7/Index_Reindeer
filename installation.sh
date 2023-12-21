@@ -1,20 +1,16 @@
-#!/bin/bash 
-
+#!/bin/bash
 
 bcalm=$1
 sratoolkit=$2
 cutadapt=$3
 snakemake=$4
 
-
-## BCALM 
-
-
+## BCALM
 echo "####"
 echo " "
-echo "Essential packages Installation"
+echo "Installation des paquets essentiels"
 echo " "
-echo " " 
+echo " "
 
 sudo apt -y install make 
 sudo apt-get -y install build-essential 
@@ -22,33 +18,38 @@ sudo apt -y install zlib1g-dev
 sudo apt -y install git
 sudo apt -y install cmake g++
 
-
-### INSTALL edirect 
+### INSTALLATION de edirect
 cd
-sudo apt -y install ncbi-entrez-direct
-sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
-export PATH=:$home/edirect:${PATH} >> ~/.bashrc
+home=$(pwd)
 
-source ~/.bashrc
-
-
-##INSTALL CONDA 
+## INSTALLATION de CONDA
 echo "####"
 echo " "
-echo "Conda Installation"
+echo "Installation de Conda"
 echo " "
-echo " " 
-
-home=$(pwd)
+echo " "
+cd
 mkdir -p miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
 bash miniconda3/miniconda.sh -b -u -p miniconda3
 
-export PATH=:$home/miniconda3/bin:$PATH >> ~/.bashrc
-
+echo 'export PATH="'$home'/miniconda3/bin:$PATH"'  >> ~/.bashrc
 source ~/.bashrc
 
-source activate 
+conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
+source ~/.bashrc
+
+# Activons un environnement Conda ici (remplacez 'nom_env' par le nom de votre environnement)
+conda activate nom_env
+
+sudo apt-get -y update
+sudo apt -y install ncbi-entrez-direct
+echo 'yes' | sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
+echo 'export PATH="'$home'/edirect:$PATH"'  >> ~/.bashrc
+cd 
+source .bashrc 
+
+
 
 echo "####"
 echo " "
