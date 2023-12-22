@@ -36,7 +36,8 @@ rule all :
 
 include: "rules/fastq.smk"
 include: "rules/trimming.smk"
-#include: "rules/bcalm.smk"
+include: "rules/bcalm.smk"
+include: "rules/reindeer.smk"
 
 
 
