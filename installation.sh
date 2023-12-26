@@ -61,6 +61,10 @@ for file in "$directory"/*.yml; do
         conda env create -f $file 
 done
 
+conda activate sratoolkit 
+conda install -y -c bioconda parallel-fastq-dump ##Installing parallel-fatq-dump inside sratoolkit conda environement
+
+conda deactivate
 
 echo " " 
 echo "####"
