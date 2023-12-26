@@ -8,15 +8,17 @@ rule fetch_fastq:
     message: 
        "fetch fastq from NCBI"
     params:
-       conda = "sratoolkit" 
+       conda = "sratoolkit",
+       outdir = config["RESULTS"] + "Fastq_Files" 
+    threads: 2
     shell:
         """
         set +eu &&
         . $(conda info --base)/etc/profile.d/conda.sh &&
         conda activate {params.conda}
-        fastq-dump \
-            --split-spot \
-            --skip-technical {wildcards.sra} \
-            --stdout 2>{log} \
-        | gzip -c > {output}
+        parallel-fastq-dump \
+            --outdir {params.outdir} \
+            --gzip \
+            --sra-id {wildcards.sra} \
+            --threads {threads}
         """
