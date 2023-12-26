@@ -30,7 +30,7 @@ mkdir -p miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
 bash miniconda3/miniconda.sh -b -u -p miniconda3
 
-echo 'export PATH="'$home'/miniconda3/bin:$PATH"'  >> ~/.bashrc
+echo 'export PATH='$home'/miniconda3/bin:$PATH'  >> ~/.bashrc
 source ~/.bashrc
 
 conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
@@ -64,6 +64,7 @@ done
 conda activate sratoolkit 
 conda install -y -c bioconda parallel-fastq-dump ##Installing parallel-fatq-dump inside sratoolkit conda environement
 
+conda init
 conda deactivate
 
 echo " " 
@@ -72,7 +73,7 @@ echo " "
 echo "REINDEER Installation "
 echo " " 
 echo " "
-
+conda init
 conda activate bcalm 
 
 cd 
@@ -85,6 +86,4 @@ echo "Verfication"
 
 sh test.sh 
 
-cd 
-
-echo "Installation DONE !"
+cd
