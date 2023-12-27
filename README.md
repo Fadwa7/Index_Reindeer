@@ -17,7 +17,7 @@ git clone https://github.com/Fadwa7/GCP.git
 Pour configurer les outils requis dans votre machine virtuelle, exécutez le script suivant en donnant le chemin vers le répertoire contenant les fichier yml.
 
 ```bash
-sh installation.sh  ~/GCP/envs
+source installation.sh  ~/GCP/envs
 ```
 #### !!!!!! Il vous serait peut être demandé de vous reconnecter une deuxième fois à la machine virtuelle !!! C'est normal :)
 
