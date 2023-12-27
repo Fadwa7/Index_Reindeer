@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 directory=$1
 
@@ -49,8 +49,7 @@ sudo apt -y install ncbi-entrez-direct
 echo 'yes' | sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
 echo 'export PATH="'$home'/edirect:$PATH"'  >> ~/.bashrc
 cd 
-source .bashrc 
-
+source ~/.bashrc
 
 ## Conda environement : 
 
