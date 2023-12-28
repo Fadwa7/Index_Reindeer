@@ -10,7 +10,7 @@ rule fetch_fastq:
     params:
        conda = "sratoolkit",
        outdir = config["RESULTS"] + "Fastq_Files" 
-    threads: 2
+    threads: 8
     shell:
         """
         set +eu &&
