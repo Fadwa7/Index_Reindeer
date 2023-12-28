@@ -2,12 +2,14 @@ rule bcalm:
      input: 
        cut_fastq = config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz"
      output: 
-       table = config["RESULTS"] + "BCALM/{sra}_trim.fastq.h5" 
+       config["RESULTS"] + "BCALM/{sra}_cutadapt.fastq.unitigs.fa"
+     shadow: "full" 
+     message:
+       " RUNNING BCALM "
      params: 
-       config["RESULTS"] + "BCALM/{sra}",
+       dir= config["RESULTS"] + "BCALM",
        kmer_size = config["KMER_SIZE"],
-       abundance = config["ABUNDANCE_MIN"]
-     params: 
+       abundance = config["ABUNDANCE_MIN"], 
        conda= "bcalm"
      log: 
        config["RESULTS"] + "Supplementary_Data/Logs/{sra}_bcalm.log" 
@@ -16,5 +18,6 @@ rule bcalm:
      shell: 
        "set +eu && "
        ". $(conda info --base)/etc/profile.d/conda.sh ;"
-       " conda activate {params.conda} ;" 
-       "bcalm -in {input.cut_fastq} -kmer-size {params.kmer_size} -abundance-min {params.abundance}"
+       " conda activate {params.conda} ;"
+       " cd {params.dir} ;" 
+       "bcalm -in {input.cut_fastq} -kmer-size {params.kmer_size} -abundance-min {params.abundance}  -out-dir {params.dir} > {log} 2>&1 "
