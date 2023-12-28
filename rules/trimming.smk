@@ -11,12 +11,13 @@ rule adapt_trimming:
         config["RESULTS"] + "Supplementary_Data/Benchmark/{sra}_cutadapt.txt"
      params:
         conda = "cutadapt"
+     threads: 8
      shell: 
         """
         set +eu &&
         . $(conda info --base)/etc/profile.d/conda.sh &&
         conda activate {params.conda} &&
         cutadapt \
-        -j 1 -q 20 -m 20 -o {output.cut_fastq} \
-        -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA {input.fastq} 2>{log} 
+        -j 1 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} \
+        -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA {input.fastq}  > {log} 2>&1 
         """
