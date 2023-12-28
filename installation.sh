@@ -1,88 +1,51 @@
-#!/bin/bash -i
+#!/bin/python3 
+configfile: "config.yml"
+import re 
+import csv 
+import yaml 
+import subprocess
+import os
 
-directory=$1
 
-## BCALM
-echo "####"
-echo " "
-echo "Installation des paquets essentiels"
-echo " "
-echo " "
+with open('config.yml', 'r') as config_file:
+        config = yaml.safe_load(config_file)
 
-sudo apt -y install make 
-sudo apt-get -y install build-essential 
-sudo apt -y install zlib1g-dev
-sudo apt -y install git
-sudo apt -y install cmake g++
 
-### INSTALLATION de edirect
-cd
-home=$(pwd)
+bioproject = config.get('BIOPROJECT')
+home = os.path.expanduser("~")
+fichier_csv = os.path.join(home, 'sra_list.csv')
 
-## INSTALLATION de CONDA
-echo "####"
-echo " "
-echo "Installation de Conda"
-echo " "
-echo " "
-cd
-mkdir -p miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
-bash miniconda3/miniconda.sh -b -u -p miniconda3
+commande = f"esearch -db sra -query {bioproject} | efetch -format runinfo | cut -f1 -d ',' > {fichier_csv}"
+subprocess.run(commande, shell=True)
 
-echo 'export PATH='$home'/miniconda3/bin:$PATH'  >> ~/.bashrc
-source ~/.bashrc
+SRA_LIST = []
+with open(fichier_csv, 'rt') as f:
+    for line in f:
+        line = line.split()[0].strip()
+        if re.match('[SED]RR\d+$', line): 
+            SRA_LIST.append(line) 
+            
+            
+            
+rule all : 
+     input: 
+           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
 
-conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
-source ~/.bashrc
 
-## INSTALLATION de CONDA
-echo "####"
-echo " "
-echo "Installation de Esearch NCBI"
-echo " "
-echo " "
+          
+##### Modules #####
 
-cd
-sudo apt-get -y update
-sudo apt -y install ncbi-entrez-direct
-echo 'yes' | sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
-echo 'export PATH="'$home'/edirect:$PATH"'  >> ~/.bashrc
-cd 
-source ~/.bashrc
+include: "rules/fastq.smk"
+include: "rules/trimming.smk"
+include: "rules/bcalm.smk"
+include: "rules/reindeer.smk"
 
-## Conda environement : 
 
-for file in "$directory"/*.yml; do 
-        filename=$(basename -- "$file")
-        extension="${filename##*.}"
-        filename="${filename%.*}"
-        conda env create -f $file 
-done
 
-conda activate sratoolkit 
-conda install -y -c bioconda parallel-fastq-dump ##Installing parallel-fatq-dump inside sratoolkit conda environement
+##### End messages #####
 
-conda init
-conda deactivate
+onsuccess:
+    print("Workflow finished, no error")
 
-echo " " 
-echo "####"
-echo " " 
-echo "REINDEER Installation "
-echo " " 
-echo " "
-conda init
-conda activate bcalm 
-
-cd 
-sudo apt -y install zlib1g-dev
-git clone --recursive https://github.com/kamimrcht/REINDEER.git
-cd REINDEER
-sh install.sh 
-
-echo "Verfication"
-
-sh test.sh 
-
-cd
+onerror:
+    print("An error occurred")
