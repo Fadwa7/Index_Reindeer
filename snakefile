@@ -8,7 +8,7 @@ import os
 
 
 with open('config.yml', 'r') as config_file:
-	config = yaml.safe_load(config_file)
+        config = yaml.safe_load(config_file)
 
 
 bioproject = config.get('BIOPROJECT')
@@ -29,9 +29,10 @@ with open(fichier_csv, 'rt') as f:
             
 rule all : 
      input: 
-          #expand(config["RESULTS"] + "BCALM/{sra}_trim.fastq.h5", sra=SRA_LIST)    
-           expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST)          
+           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
 
+
+          
 ##### Modules #####
 
 include: "rules/fastq.smk"
