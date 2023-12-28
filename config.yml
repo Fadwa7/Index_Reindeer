@@ -1,6 +1,5 @@
-##Results folder
-
-
-
 RESULTS: "/home/fadwa_el_khaddar/Results/"
-BIOPROJECT: "SAMN06710536"
+BIOPROJECT: "PRJNA454681"
+BUCKETS : "gs://sra_files1/"
+ABUNDANCE_MIN: 3
+KMER_SIZE: 31
