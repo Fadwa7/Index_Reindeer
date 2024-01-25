@@ -3,7 +3,7 @@ import subprocess
 
 rule files_path:
         input: 
-                expand(config["RESULTS"] + "BCALM/{sra}_cutadapt.fastq.unitigs.fa", sra=SRA_LIST)
+                expand(config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa", sra=SRA_LIST) 
         output:
                 config["RESULTS"] + "REINDEER/files_path.txt"
         params:
