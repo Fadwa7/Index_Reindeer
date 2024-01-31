@@ -19,7 +19,6 @@ Pour configurer les outils requis dans votre machine virtuelle, exécutez le scr
 ```bash
 source installation.sh  ~/GCP/envs
 ```
-#### !!!!!! Il vous serait peut être demandé de vous reconnecter une deuxième fois à la machine virtuelle !!! C'est normal :)
 
 ## Exécution de Snakemake 
 
@@ -30,18 +29,11 @@ Activez l'environnement conda pour Snakemake en utilisant la commande :
 ```bash
 source activate snakemake
 ```
-### Modification des paramètres sur config.yml 
-
-Modifiez le fichier config.yml pour spécifier le numéro d'accès au BioProject qui vous intéresse ainsi que le chemin vers le dossier où les résultats doivent être stockés :
-
-```bash
-nano config.yml
-```
 ### Exécution du Snakemake 
 Naviguez vers le répertoire du projet, puis exécutez Snakemake :
 ```bash
 cd GCP
-snakemake -s snakefile --cores $nbcores
+snakemake -s snakefile --cores $nbcores --config sra_list=$path/to/sra_id_list/
 ```
 ## Résultats:
 Une fois terminé, les résultats du traitement seront organisés de la manière suivante : 
