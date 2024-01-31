@@ -11,12 +11,8 @@ with open('config.yml', 'r') as config_file:
         config = yaml.safe_load(config_file)
 
 
-bioproject = config.get('BIOPROJECT')
-home = os.path.expanduser("~")
-fichier_csv = os.path.join(home, 'sra_list.csv')
+fichier_csv = config.get('SRA_LIST')
 
-commande = f"esearch -db sra -query {bioproject} | efetch -format runinfo | cut -f1 -d ',' > {fichier_csv}"
-subprocess.run(commande, shell=True)
 
 SRA_LIST = []
 with open(fichier_csv, 'rt') as f:
@@ -29,10 +25,11 @@ with open(fichier_csv, 'rt') as f:
             
 rule all : 
      input: 
-           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
-
-
-          
+           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
+           #config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
+           expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
+           expand(config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa", sra=SRA_LIST),
+           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"          
 ##### Modules #####
 
 include: "rules/fastq.smk"
