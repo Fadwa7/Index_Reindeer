@@ -51,6 +51,15 @@ echo 'export PATH="'$home'/edirect:$PATH"'  >> ~/.bashrc
 cd 
 source ~/.bashrc
 
+echo "####"
+echo " "
+echo "Installation de mamba et création de l'environnement conda de snakemake"
+echo " "
+
+
+conda install -n base -c conda-forge -y mamba
+mamba create -c conda-forge -c bioconda -n snakemake snakemake -y
+
 ## Conda environement : 
 
 for file in "$directory"/*.yml; do 
@@ -59,6 +68,9 @@ for file in "$directory"/*.yml; do
         filename="${filename%.*}"
         conda env create -f $file 
 done
+
+
+
 
 conda activate sratoolkit 
 conda install -y -c bioconda parallel-fastq-dump ##Installing parallel-fatq-dump inside sratoolkit conda environement
@@ -86,3 +98,4 @@ echo "Verfication"
 sh test.sh 
 
 cd
+mamba activate snakemake
