@@ -1,6 +1,5 @@
-# GCP: Traitement des fichiers SRR
+# Génération d'index Reindeer à partir d'une liste de fichiers fastq sur Cloud ( Google Cloud Platform "GCP" et L'Institut Français de Bioinformatique "IFB")
 
-Ce projet se concentre sur le traitement des données SRR au sein d'une instance VM sur Google Cloud Platform.
 
 ## Importation du répertoire
 
