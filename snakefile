@@ -26,16 +26,16 @@ with open(fichier_csv, 'rt') as f:
             
 rule all : 
      input: 
-           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
-           #config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
+           #expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
+           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
 
           
 ##### Modules #####
 
 include: "rules/fastq.smk"
-#include: "rules/trimming.smk"
-#include: "rules/bcalm.smk"
-#include: "rules/reindeer.smk"
+include: "rules/trimming.smk"
+include: "rules/bcalm.smk"
+include: "rules/reindeer.smk"
 
 
 
