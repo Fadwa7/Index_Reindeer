@@ -18,16 +18,6 @@ Pour configurer les outils requis dans votre machine virtuelle, exécutez le scr
 ```bash
 source installation.sh  ~/GCP/envs
 ```
-
-## Exécution de Snakemake 
-
-### Activation de l'environnement conda pour Snakemake 
-
-Activez l'environnement conda pour Snakemake en utilisant la commande :
-
-```bash
-source activate snakemake
-```
 ### Exécution du Snakemake 
 Naviguez vers le répertoire du projet, puis exécutez Snakemake :
 ```bash
