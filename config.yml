@@ -1,8 +1,0 @@
-RESULTS: "Results/"
-#BIOPROJECT: "PRJNA454681"
-#BUCKETS : "gs://sra_files1/"
-ABUNDANCE_MIN: 3
-KMER_SIZE: 31
-SCRIPTS: "scripts/"
-TRIMMED: "no"     #add yes if your fastqs are already trimmed
-ADAPTER_SEQUENCE: "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA" # if you don't have the adapter sequence, please let is empty " " 
