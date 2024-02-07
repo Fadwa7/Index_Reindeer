@@ -36,17 +36,17 @@ rule reindeer:
                 "~/REINDEER/Reindeer --index -f {input} -o {params.dir} > {log} 2>&1" 
 
 
-dossier_local = config["RESULTS"] + "REINDEER/index_reindeer"
+#dossier_local = config["RESULTS"] + "REINDEER/index_reindeer"
 
 # Chemin du bucket GCS et du dossier de destination
-bucket_gcs = config["BUCKETS"]
+#bucket_gcs = config["BUCKETS"]
 
 # Commande gsutil pour copier le contenu du dossier local vers GCS
-commande_gsutil = f"gsutil -m cp -r {dossier_local}/* {bucket_gcs}"
+#commande_gsutil = f"gsutil -m cp -r {dossier_local}/* {bucket_gcs}"
 
 # Exécution de la commande via subprocess
-try:
-    subprocess.run(commande_gsutil, shell=True, check=True)
-    print(f"Le contenu de '{dossier_local}' a été copié avec succès vers '{bucket_gcs}'.")
-except subprocess.CalledProcessError as e:
-    print(f"Une erreur s'est produite : {e}")
+#try:
+#    subprocess.run(commande_gsutil, shell=True, check=True)
+#    print(f"Le contenu de '{dossier_local}' a été copié avec succès vers '{bucket_gcs}'.")
+#except subprocess.CalledProcessError as e:
+#    print(f"Une erreur s'est produite : {e}")

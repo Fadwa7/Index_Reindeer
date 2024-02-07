@@ -3,7 +3,7 @@ rule bcalm:
        cut_fastq = config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz"
      output: 
        config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa"  
-     shadow: "full" 
+     threads : 2 
      message:
        " RUNNING BCALM "
      params: 

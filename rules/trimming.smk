@@ -2,7 +2,7 @@ rule adapt_trimming:
      input: 
         fastq = config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz"
      output: 
-        cut_fastq = config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz" 
+        cut_fastq = temp(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz")
      message: 
         "Trimmig FASTQS" 
      log: 
