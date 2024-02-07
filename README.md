@@ -30,14 +30,14 @@ Une fois terminé, les résultats du traitement seront organisés de la manière
 ```bash
 .
 ├── BCALM
-│   └── ${filename}_cutadapt.fastq.unitigs.fa
-├── Fastq_Files
-│   └── ${filename}.fastq.gz
+│   └── ${sample}_cutadapt.unitigs.fa
+├── QC
+│   ├── multiqc_data
+│   └── multiqc_report.html
 ├── REINDEER
-|   └── ${filename}_index_reindeer
-├── Supplementary_Data
-│   ├── Benchmark
-│   └── Logs
-└── Trimming
-    └── ${filename}_cutadapt.fastq.gz
+│   ├── files_path.txt
+│   └── index_reindeer
+└── Supplementary_Data
+    ├── Benchmark
+    └── Logs
 ```
