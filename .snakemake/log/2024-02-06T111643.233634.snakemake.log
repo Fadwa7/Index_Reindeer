@@ -1,0 +1,55 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+multi_fastqc        1
+reindeer            1
+total               3
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Feb  6 11:16:43 2024]
+Job 11:  RUNNING REINDEER 
+Reason: Missing output files: Results/REINDEER/index_reindeer/reindeer_index.gz
+
+
+[Tue Feb  6 11:16:43 2024]
+localrule multi_fastqc:
+    input: Results/Trimming/SRR7093950_cutadapt.fastq.gz, Results/Trimming/SRR7093946_cutadapt.fastq.gz, Results/Trimming/SRR7093942_cutadapt.fastq.gz
+    output: Results/QC/multiqc_report.html
+    log: Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 7
+    reason: Missing output files: Results/QC/multiqc_report.html
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 11:16:45 2024]
+Finished job 7.
+1 of 3 steps (33%) done
+Removing temporary output Results/Trimming/SRR7093950_cutadapt.fastq.gz.
+Removing temporary output Results/Trimming/SRR7093946_cutadapt.fastq.gz.
+Removing temporary output Results/Trimming/SRR7093942_cutadapt.fastq.gz.
+[Tue Feb  6 11:19:29 2024]
+Finished job 11.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 11:19:29 2024]
+localrule all:
+    input: Results/Fastq_Files/SRR7093950.fastq.gz, Results/Fastq_Files/SRR7093946.fastq.gz, Results/Fastq_Files/SRR7093942.fastq.gz, Results/QC/multiqc_report.html, Results/REINDEER/index_reindeer/reindeer_index.gz
+    jobid: 0
+    reason: Input files updated by another job: Results/REINDEER/index_reindeer/reindeer_index.gz, Results/QC/multiqc_report.html
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 11:19:29 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Removing temporary output Results/Fastq_Files/SRR7093950.fastq.gz.
+Removing temporary output Results/Fastq_Files/SRR7093946.fastq.gz.
+Removing temporary output Results/Fastq_Files/SRR7093942.fastq.gz.
+Complete log: .snakemake/log/2024-02-06T111643.233634.snakemake.log

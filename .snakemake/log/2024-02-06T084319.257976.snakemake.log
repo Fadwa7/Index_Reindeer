@@ -1,0 +1,194 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+dump_sra              4
+files_path            1
+multi_fastqc          1
+reindeer              1
+sra_prefetch          4
+total                20
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 08:43:19 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093942.prefetch.log
+    jobid: 8
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093942.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+    wildcards: sra=SRR7093942
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 08:43:42 2024]
+Finished job 8.
+1 of 20 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 08:43:42 2024]
+Job 7: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093942.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+
+[Tue Feb  6 08:56:31 2024]
+Finished job 7.
+2 of 20 steps (10%) done
+Removing temporary output Results/Fastq_files/sra_prefetch/SRR7093942.sra.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 08:56:31 2024]
+Job 13: Trimmig FASTQS
+Reason: Missing output files: Results/Trimming/SRR7093942_cutadapt.fastq.gz; Input files updated by another job: Results/Fastq_Files/SRR7093942.fastq.gz
+
+[Tue Feb  6 09:01:18 2024]
+Finished job 13.
+3 of 20 steps (15%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:01:18 2024]
+Job 19:  RUNNING BCALM 
+Reason: Missing output files: Results/BCALM/SRR7093942_cutadapt.unitigs.fa; Input files updated by another job: Results/Trimming/SRR7093942_cutadapt.fastq.gz
+
+[Tue Feb  6 09:03:32 2024]
+Finished job 19.
+4 of 20 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:03:32 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093950.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093950.prefetch.log
+    jobid: 4
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093950.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093950.sra
+    wildcards: sra=SRR7093950
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 09:04:01 2024]
+Finished job 4.
+5 of 20 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:04:01 2024]
+Job 3: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093950.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093950.sra
+
+[Tue Feb  6 09:18:56 2024]
+Finished job 3.
+6 of 20 steps (30%) done
+Removing temporary output Results/Fastq_files/sra_prefetch/SRR7093950.sra.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:18:56 2024]
+Job 11: Trimmig FASTQS
+Reason: Missing output files: Results/Trimming/SRR7093950_cutadapt.fastq.gz; Input files updated by another job: Results/Fastq_Files/SRR7093950.fastq.gz
+
+[Tue Feb  6 09:24:20 2024]
+Finished job 11.
+7 of 20 steps (35%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:24:20 2024]
+Job 17:  RUNNING BCALM 
+Reason: Missing output files: Results/BCALM/SRR7093950_cutadapt.unitigs.fa; Input files updated by another job: Results/Trimming/SRR7093950_cutadapt.fastq.gz
+
+[Tue Feb  6 09:27:18 2024]
+Finished job 17.
+8 of 20 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:27:18 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093946.prefetch.log
+    jobid: 6
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093946.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    wildcards: sra=SRR7093946
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 09:27:54 2024]
+Finished job 6.
+9 of 20 steps (45%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:27:54 2024]
+Job 5: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093946.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+
+[Tue Feb  6 09:47:35 2024]
+Finished job 5.
+10 of 20 steps (50%) done
+Removing temporary output Results/Fastq_files/sra_prefetch/SRR7093946.sra.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:47:35 2024]
+Job 12: Trimmig FASTQS
+Reason: Missing output files: Results/Trimming/SRR7093946_cutadapt.fastq.gz; Input files updated by another job: Results/Fastq_Files/SRR7093946.fastq.gz
+
+[Tue Feb  6 09:55:14 2024]
+Finished job 12.
+11 of 20 steps (55%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:55:14 2024]
+Job 18:  RUNNING BCALM 
+Reason: Missing output files: Results/BCALM/SRR7093946_cutadapt.unitigs.fa; Input files updated by another job: Results/Trimming/SRR7093946_cutadapt.fastq.gz
+
+[Tue Feb  6 09:58:28 2024]
+Finished job 18.
+12 of 20 steps (60%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 09:58:28 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log
+    jobid: 2
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093892.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    wildcards: sra=SRR7093892
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 09:58:35 2024]
+Error in rule sra_prefetch:
+    jobid: 2
+    output: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log (check log file(s) for error details)
+    shell:
+        
+        set +eu &&
+        . $(conda info --base)/etc/profile.d/conda.sh &&
+        conda activate sratoolkit
+        prefetch SRR7093892 -o Results/Fastq_files/sra_prefetch/SRR7093892.sra &> Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-06T084319.257976.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

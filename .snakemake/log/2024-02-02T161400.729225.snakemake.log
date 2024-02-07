@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        1
+all                   1
+find_adapter          1
+total                 3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb  2 16:14:01 2024]
+localrule find_adapter:
+    input: Results/Fastq_Files/SRR7093892.fastq.gz
+    output: Results/Trimming/ADAPTERS_FINDER/SRR7093892.txt
+    log: Results/Supplementary_Data/Logs/SRR7093892_find_adapter.log
+    jobid: 3
+    reason: Missing output files: Results/Trimming/ADAPTERS_FINDER/SRR7093892.txt
+    wildcards: sra=SRR7093892
+    resources: tmpdir=/tmp
+
+[Fri Feb  2 16:14:01 2024]
+Finished job 3.
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb  2 16:14:01 2024]
+Job 2: Trimmig FASTQS
+Reason: Missing output files: Results/Trimming/SRR7093892_cutadapt.fastq.gz; Input files updated by another job: Results/Trimming/ADAPTERS_FINDER/SRR7093892.txt
+
+RuleException in rule adapt_trimming in file /home/el_fadwa1997/GCP/rules/trimming_find_adapter.smk, line 21:
+NameError: The name "'TRIMMED'" is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}, when formatting the following:
+
+        adapter_sequence=$(cat {input.adapter})
+        if [ "{config['TRIMMED']}" = "no" ]; then
+            trim="-a $adapter_sequence "
+            echo "The adapter is : $trim"    
+            cutadapt -j 1 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} $trim  {input.fastq}  > {log} 2>&1
+        else
+            ln -s {input.fastq} {output.cut_fastq}
+            echo "Reads are already trimmed."
+        fi
+        

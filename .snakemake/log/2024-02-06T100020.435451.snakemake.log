@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        1
+all                   1
+bcalm                 1
+dump_sra              1
+files_path            1
+multi_fastqc          1
+reindeer              1
+sra_prefetch          1
+total                 8
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 10:00:21 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log
+    jobid: 2
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093892.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    wildcards: sra=SRR7093892
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 10:00:27 2024]
+Error in rule sra_prefetch:
+    jobid: 2
+    output: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log (check log file(s) for error details)
+    shell:
+        
+        set +eu &&
+        . $(conda info --base)/etc/profile.d/conda.sh &&
+        conda activate sratoolkit
+        prefetch SRR7093892 -o Results/Fastq_files/sra_prefetch/SRR7093892.sra &> Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-02-06T100020.435451.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

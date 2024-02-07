@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        1
+all                   1
+find_adapter          1
+total                 3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb  2 16:13:01 2024]
+localrule find_adapter:
+    input: Results/Fastq_Files/SRR7093892.fastq.gz
+    output: Results/Trimming/ADAPTERS_FINDER/SRR7093892.txt
+    log: Results/Supplementary_Data/Logs/SRR7093892_find_adapter.log
+    jobid: 3
+    reason: Missing output files: Results/Trimming/ADAPTERS_FINDER/SRR7093892.txt
+    wildcards: sra=SRR7093892
+    resources: tmpdir=/tmp
+
+RuleException in rule find_adapter in file /home/el_fadwa1997/GCP/rules/trimming_find_adapter.smk, line 3:
+AttributeError: 'Log' object has no attribute 'touch', when formatting the following:
+touch {output.adapter} 2> {log.touch};if [ -z AGATCGGAAGAGCACACGTCTGAACTCCAGTCA ]; then Rscript scripts/find_adapter_sequence.R {input.fastq} ;elif [ 'no' = 'no' ]; then echo AGATCGGAAGAGCACACGTCTGAACTCCAGTCA 1> {output.adapter};fi;

@@ -1,0 +1,57 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+dump_sra              4
+files_path            1
+multi_fastqc          1
+reindeer              1
+sra_prefetch          4
+total                20
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 08:25:32 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093946.prefetch.log
+    jobid: 6
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093946.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    wildcards: sra=SRR7093946
+    threads: 2
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 08:26:10 2024]
+Finished job 6.
+1 of 20 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 08:26:10 2024]
+Job 5: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093946.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+
+Terminating processes on user request, this might take some time.
+[Tue Feb  6 08:41:15 2024]
+Error in rule dump_sra:
+    jobid: 5
+    input: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    output: Results/Fastq_Files/SRR7093946.fastq.gz
+    log: Results/Supplementary_Data/Logs/dump_sra/SRR7093946.sratoolkit.log (check log file(s) for error details)
+    shell:
+        
+        set +eu &&
+        . $(conda info --base)/etc/profile.d/conda.sh &&
+        conda activate sratoolkit
+	fastq-dump 		--split-spot 		--skip-technical SRR7093946 		--stdout 2>Results/Supplementary_Data/Logs/dump_sra/SRR7093946.sratoolkit.log 	| gzip -c > Results/Fastq_Files/SRR7093946.fastq.gz
+	
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+

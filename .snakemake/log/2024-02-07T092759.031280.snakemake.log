@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        3
+all                   1
+bcalm                 3
+dump_sra              3
+files_path            1
+multi_fastqc          1
+reindeer              1
+sra_prefetch          3
+total                16
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Feb  7 09:28:00 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093950.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093950.prefetch.log
+    jobid: 2
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093950.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093950.sra
+    wildcards: sra=SRR7093950
+    threads: 2
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.

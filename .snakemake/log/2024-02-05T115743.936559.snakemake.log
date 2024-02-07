@@ -1,0 +1,121 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+dump_sra              4
+files_path            1
+reindeer              1
+sra_prefetch          4
+total                19
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Mon Feb  5 11:57:44 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093942.prefetch.log
+    jobid: 8
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093942.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+    wildcards: sra=SRR7093942
+    resources: tmpdir=/tmp
+
+
+[Mon Feb  5 11:57:44 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093946.prefetch.log
+    jobid: 6
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093946.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    wildcards: sra=SRR7093946
+    resources: tmpdir=/tmp
+
+[Mon Feb  5 11:58:06 2024]
+Finished job 8.
+1 of 19 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb  5 11:58:06 2024]
+Job 7: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093942.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093942.sra
+
+[Mon Feb  5 11:58:14 2024]
+Finished job 6.
+2 of 19 steps (11%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb  5 11:58:14 2024]
+Job 5: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093946.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+
+[Mon Feb  5 12:11:04 2024]
+Finished job 7.
+3 of 19 steps (16%) done
+Removing temporary output Results/Fastq_files/sra_prefetch/SRR7093942.sra.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb  5 12:11:04 2024]
+localrule sra_prefetch:
+    output: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    log: Results/Supplementary_Data/Logs/prefetch/SRR7093892.prefetch.log
+    jobid: 2
+    benchmark: Results/Supplementary_Data/Benchmark/prefetch/SRR7093892.prefetch.txt
+    reason: Missing output files: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    wildcards: sra=SRR7093892
+    resources: tmpdir=/tmp
+
+[Mon Feb  5 12:11:21 2024]
+Finished job 2.
+4 of 19 steps (21%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb  5 12:11:21 2024]
+Job 1: fetch fastq from NCBI
+Reason: Missing output files: Results/Fastq_Files/SRR7093892.fastq.gz; Input files updated by another job: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+
+Terminating processes on user request, this might take some time.
+[Mon Feb  5 12:12:25 2024]
+Error in rule dump_sra:
+    jobid: 1
+    input: Results/Fastq_files/sra_prefetch/SRR7093892.sra
+    output: Results/Fastq_Files/SRR7093892.fastq.gz
+    log: Results/Supplementary_Data/Logs/dump_sra/SRR7093892.sratoolkit.log (check log file(s) for error details)
+    shell:
+        
+        set +eu &&
+        . $(conda info --base)/etc/profile.d/conda.sh &&
+        conda activate sratoolkit
+	fastq-dump 		--split-spot 		--skip-technical SRR7093892 		--stdout 2>Results/Supplementary_Data/Logs/dump_sra/SRR7093892.sratoolkit.log 	| gzip -c > Results/Fastq_Files/SRR7093892.fastq.gz
+	
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Feb  5 12:12:25 2024]
+Error in rule dump_sra:
+    jobid: 5
+    input: Results/Fastq_files/sra_prefetch/SRR7093946.sra
+    output: Results/Fastq_Files/SRR7093946.fastq.gz
+    log: Results/Supplementary_Data/Logs/dump_sra/SRR7093946.sratoolkit.log (check log file(s) for error details)
+    shell:
+        
+        set +eu &&
+        . $(conda info --base)/etc/profile.d/conda.sh &&
+        conda activate sratoolkit
+	fastq-dump 		--split-spot 		--skip-technical SRR7093946 		--stdout 2>Results/Supplementary_Data/Logs/dump_sra/SRR7093946.sratoolkit.log 	| gzip -c > Results/Fastq_Files/SRR7093946.fastq.gz
+	
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2024-02-05T115743.936559.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

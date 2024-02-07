@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+fetch_fastq        4
+total              5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb  2 11:04:20 2024]
+Job 4: fetch fastq from NCBI
+Reason: Missing output files: /home/fadwa_el_khaddar/Results/Fastq_Files/SRR7093895.fastq.gz
+

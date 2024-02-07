@@ -1,0 +1,62 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+files_path          1
+multi_fastqc        1
+reindeer            1
+total               4
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Feb  6 10:21:27 2024]
+localrule files_path:
+    input: Results/BCALM/SRR7093950_cutadapt.unitigs.fa, Results/BCALM/SRR7093946_cutadapt.unitigs.fa, Results/BCALM/SRR7093942_cutadapt.unitigs.fa
+    output: Results/REINDEER/files_path.txt
+    jobid: 12
+    reason: Missing output files: Results/REINDEER/files_path.txt
+    resources: tmpdir=/tmp
+
+
+[Tue Feb  6 10:21:27 2024]
+localrule multi_fastqc:
+    input: Results/Trimming/SRR7093950_cutadapt.fastq.gz, Results/Trimming/SRR7093946_cutadapt.fastq.gz, Results/Trimming/SRR7093942_cutadapt.fastq.gz
+    output: Results/QC/Multiqc_report.html
+    log: Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 7
+    reason: Missing output files: Results/QC/Multiqc_report.html
+    resources: tmpdir=/tmp
+
+[Tue Feb  6 10:21:28 2024]
+Finished job 12.
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Feb  6 10:21:28 2024]
+Job 11:  RUNNING REINDEER 
+Reason: Missing output files: Results/REINDEER/index_reindeer/reindeer_index.gz; Input files updated by another job: Results/REINDEER/files_path.txt
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule multi_fastqc in file /home/el_fadwa1997/GCP/rules/multiqc.smk, line 1:
+Job 7  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+Results/QC/Multiqc_report.html
+Terminating processes on user request, this might take some time.
+[Tue Feb  6 10:22:28 2024]
+Error in rule reindeer:
+    jobid: 11
+    input: Results/REINDEER/files_path.txt
+    output: Results/REINDEER/index_reindeer/reindeer_index.gz
+    log: Results/Supplementary_Data/Logs/reindeer.txt (check log file(s) for error details)
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ;~/REINDEER/Reindeer --index -f Results/REINDEER/files_path.txt -o Results/REINDEER/index_reindeer > Results/Supplementary_Data/Logs/reindeer.txt 2>&1
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2024-02-06T102127.058731.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        1
+all                   1
+total                 2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb  2 16:11:06 2024]
+Job 2: Trimmig FASTQS
+Reason: Missing output files: Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+RuleException in rule adapt_trimming in file /home/el_fadwa1997/GCP/rules/trimming_find_adapter.smk, line 21:
+AttributeError: 'InputFiles' object has no attribute 'adapt_seq', when formatting the following:
+
+        adapter_sequence=$(cat {input.adapt_seq})
+        if [ "{config['TRIMMED']}" = "no" ]; then
+            trim="-a $adapter_sequence "
+            echo "The adapter is : $trim"    
+            cutadapt -j 1 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} $trim  {input.fastq}  > {log} 2>&1
+        else
+            ln -s {input.fastq} {output.cut_fastq}
+            echo "Reads are already trimmed."
+        fi
+        
