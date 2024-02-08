@@ -31,17 +31,17 @@ with open(fichier_csv, 'rt') as f:
 rule all : 
      input: 
            expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
-           #expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
+           expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
            #config["RESULTS"] + "QC/multiqc_report.html",
            #config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
 
           
 ##### Modules #####
 
-
-include: "rules/fastq.smk"
-#include: "rules/trimming.smk"
+include: "rules/fastq_parallel.smk"
+#include: "rules/fastq.smk"
 #include: "rules/multiqc.smk"
+include: "rules/trimming.smk"
 #include: "rules/bcalm.smk"
 #include: "rules/reindeer.smk"
 
