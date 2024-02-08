@@ -1,7 +1,6 @@
 {
-  "RESULTS": "Results/",
+  "RESULTS": "/home/el_fadwa1997/Results/",
   "SRA_LIST": "/home/el_fadwa1997/test.csv",
   "ABUNDANCE_MIN": 3,
   "KMER_SIZE": 31
 }
-
