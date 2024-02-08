@@ -1,6 +1,6 @@
 rule multi_fastqc:
     input: 
-         expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST)
+         expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST)
     output: 
          config["RESULTS"] + "QC/multiqc_report.html"
     log: 
