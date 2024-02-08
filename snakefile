@@ -38,8 +38,7 @@ rule all :
           
 ##### Modules #####
 
-include: "rules/fastq_parallel.smk"
-#include: "rules/fastq.smk"
+include: "rules/fastq.smk"
 #include: "rules/multiqc.smk"
 include: "rules/trimming.smk"
 #include: "rules/bcalm.smk"
