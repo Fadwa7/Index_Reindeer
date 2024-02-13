@@ -1,3 +1,5 @@
+####### TODO : Add multiqc "pip install multiqc" 
+
 #!/bin/bash -i
 
 directory=$1
