@@ -19,7 +19,6 @@ rule fetch_fastq:
         prefetch {wildcards.sra}
         parallel-fastq-dump \
             --outdir {params.outdir} \
-            --split-spot \
             --gzip \
             --sra-id {wildcards.sra} \
             --threads {threads}
