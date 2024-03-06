@@ -100,4 +100,5 @@ echo "Verfication"
 sh test.sh 
 
 cd
+mamba init
 mamba activate snakemake

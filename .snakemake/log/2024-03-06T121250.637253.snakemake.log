@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+adapt_trimming          4
+all                     1
+bcalm                   4
+compressed_bcalm        4
+files_path              1
+reindeer                1
+total                  15
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 12:12:50 2024]
+Job 10: Trimmig FASTQS
+Reason: Forced execution
+
+[Wed Mar  6 12:16:45 2024]
+Finished job 10.
+1 of 15 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 12:16:45 2024]
+Job 13: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+[Wed Mar  6 12:22:42 2024]
+Finished job 13.
+2 of 15 steps (13%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 12:22:42 2024]
+Job 19:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+
+[Wed Mar  6 12:22:42 2024]
+Job 16:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+[Wed Mar  6 12:31:26 2024]
+Error in rule bcalm:
+    jobid: 16
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ; bcalm -in /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz -kmer-size 31 -abundance-min 3 -out-dir /home/el_fadwa1997/Results/BCALM -nb-cores 8 -out /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt ; rm /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.glue.*;
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Mar  6 12:35:12 2024]
+Finished job 19.
+3 of 15 steps (20%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T121250.637253.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

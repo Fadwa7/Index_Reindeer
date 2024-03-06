@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        2
+all                   1
+bcalm                 4
+files_path            1
+reindeer              1
+total                 9
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 11:09:59 2024]
+Job 17:  RUNNING BCALM 
+Reason: Code has changed since last execution
+
+
+[Wed Mar  6 11:09:59 2024]
+Job 16:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+
+Terminating processes on user request, this might take some time.
+[Wed Mar  6 11:10:09 2024]
+Error in rule bcalm:
+    jobid: 17
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ; bcalm -in /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz -kmer-size 31 -abundance-min 3 -out-dir /home/el_fadwa1997/Results/BCALM -nb-cores 8 -out /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt ; rm /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.glue.*;
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Mar  6 11:10:09 2024]
+Error in rule bcalm:
+    jobid: 16
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ; bcalm -in /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz -kmer-size 31 -abundance-min 3 -out-dir /home/el_fadwa1997/Results/BCALM -nb-cores 8 -out /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt ; rm /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.glue.*;
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2024-03-06T110958.509493.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,116 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+make_fastqc         4
+multi_fastqc        1
+reindeer            1
+total               7
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:18:21 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093892.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.html
+    log: /home/el_fadwa1997/Results/QC/SRR7093892.log
+    jobid: 6
+    benchmark: /home/el_fadwa1997/Results/QC/SRR7093892_benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.html
+    wildcards: sra=SRR7093892
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 09:19:53 2024]
+Finished job 6.
+1 of 7 steps (14%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.zip.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:19:53 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093893.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.html
+    log: /home/el_fadwa1997/Results/QC/SRR7093893.log
+    jobid: 7
+    benchmark: /home/el_fadwa1997/Results/QC/SRR7093893_benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.html
+    wildcards: sra=SRR7093893
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 09:20:55 2024]
+Finished job 7.
+2 of 7 steps (29%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.zip.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:20:55 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093895.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.html
+    log: /home/el_fadwa1997/Results/QC/SRR7093895.log
+    jobid: 9
+    benchmark: /home/el_fadwa1997/Results/QC/SRR7093895_benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.html
+    wildcards: sra=SRR7093895
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 09:24:04 2024]
+Finished job 9.
+3 of 7 steps (43%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.zip.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:24:05 2024]
+Job 14:  RUNNING REINDEER 
+Reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz
+
+[Wed Mar  6 09:26:57 2024]
+Finished job 14.
+4 of 7 steps (57%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:26:57 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093894.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.html
+    log: /home/el_fadwa1997/Results/QC/SRR7093894.log
+    jobid: 8
+    benchmark: /home/el_fadwa1997/Results/QC/SRR7093894_benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.html
+    wildcards: sra=SRR7093894
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 09:30:28 2024]
+Finished job 8.
+5 of 7 steps (71%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.zip.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:30:28 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.html
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 5
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/multiqc_report.html; Input files updated by another job: /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.html
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule multi_fastqc in file /home/el_fadwa1997/GCP/rules/multiqc.smk, line 21:
+Job 5  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/el_fadwa1997/Results/QC/multiqc_report.html
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T091821.574421.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

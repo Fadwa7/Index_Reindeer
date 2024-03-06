@@ -7,13 +7,13 @@ import subprocess
 import os
 
 
+
+
+
+# Extraction of config file 
+
 with open('config.json', 'r') as config_file:
         config = json.load(config_file)
-
-
-
-#home = os.path.expanduser("~")
-#fichier_csv = os.path.join(home, 'sra_list.csv')
 fichier_csv = config.get("SRA_LIST")
 if "SRA_LIST" in config:
     fichier_csv = config["SRA_LIST"]
@@ -25,26 +25,24 @@ with open(fichier_csv, 'rt') as f:
         line = line.split()[0].strip()
         if re.match('[SED]RR\d+$', line): 
             SRA_LIST.append(line) 
-            
 
-            
 rule all : 
      input: 
-           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
+           #storage.gcs(expand("Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST)),
+#           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
+#           config["RESULTS"] + "QC/multiqc_report.html",
            expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
-           #config["RESULTS"] + "QC/multiqc_report.html",
-           #config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
+           config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
+           expand(config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa.gz", sra=SRA_LIST)
 
           
 ##### Modules #####
 
-include: "rules/fastq.smk"
+#include: "rules/fastq.smk"
 #include: "rules/multiqc.smk"
 include: "rules/trimming.smk"
-#include: "rules/bcalm.smk"
-#include: "rules/reindeer.smk"
-
-
+include: "rules/bcalm.smk"
+include: "rules/reindeer.smk"
 
 ##### End messages #####
 

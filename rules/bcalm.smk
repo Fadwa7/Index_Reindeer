@@ -11,7 +11,7 @@ rule bcalm:
        kmer_size = config["KMER_SIZE"],
        abundance = config["ABUNDANCE_MIN"], 
        conda= "bcalm",
-       out = config["RESULTS"] + "BCALM/{sra}_cutadapt"
+       out = config["RESULTS"] + "BCALM/{sra}_cutadapt"       
      #log: 
        #config["RESULTS"] + "Supplementary_Data/Logs/{sra}_bcalm.log" 
      benchmark:
@@ -22,3 +22,5 @@ rule bcalm:
        " conda activate {params.conda} ;"
        #" cd {params.dir} ;" 
        " bcalm -in {input.cut_fastq} -kmer-size {params.kmer_size} -abundance-min {params.abundance} -out-dir {params.dir} -nb-cores 8 -out {params.out} "
+
+

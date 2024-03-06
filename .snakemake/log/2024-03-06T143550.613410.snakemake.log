@@ -1,0 +1,76 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+adapt_trimming          4
+all                     1
+bcalm                   4
+compressed_bcalm        4
+files_path              1
+reindeer                1
+total                  15
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 14:35:50 2024]
+Job 2: Trimmig FASTQS
+Reason: Code has changed since last execution; Params have changed since last execution
+
+[Wed Mar  6 14:37:16 2024]
+Finished job 2.
+1 of 15 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 14:37:16 2024]
+Job 4: Trimmig FASTQS
+Reason: Code has changed since last execution; Params have changed since last execution
+
+[Wed Mar  6 14:42:43 2024]
+Finished job 4.
+2 of 15 steps (13%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 14:42:43 2024]
+Job 8:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+
+
+[Wed Mar  6 14:42:43 2024]
+Job 10:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+[Wed Mar  6 14:52:51 2024]
+Finished job 8.
+3 of 15 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 14:52:52 2024]
+Job 12:  Compressing Bcalm output file /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+
+[Wed Mar  6 14:53:44 2024]
+Error in rule compressed_bcalm:
+    jobid: 12
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz
+    shell:
+         gzip -c /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa > /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz ; rm *.fa
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job compressed_bcalm since they might be corrupted:
+/home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz
+[Wed Mar  6 14:55:34 2024]
+Finished job 10.
+4 of 15 steps (27%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T143550.613410.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

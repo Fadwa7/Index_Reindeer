@@ -1,6 +1,7 @@
 rule fetch_fastq:
     output:
-        temp(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz")
+	#storage.gcs("Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST)
+        config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz"
     log:
         config["RESULTS"] + "Supplementary_Data/Logs/{sra}.sratoolkit.log"
     benchmark:
@@ -10,6 +11,7 @@ rule fetch_fastq:
     params:
        conda = "sratoolkit",
        outdir = config["RESULTS"] + "Fastq_Files"
+       #outdir = storage.gcs("Fastq_Files")
     threads: 16
     shell:
         """

@@ -1,0 +1,39 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        2
+all                   1
+bcalm                 4
+files_path            1
+reindeer              1
+total                 9
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 10:57:52 2024]
+Job 17:  RUNNING BCALM 
+Reason: Code has changed since last execution
+
+
+[Wed Mar  6 10:57:52 2024]
+Job 16:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa; Updated input files: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+[Wed Mar  6 11:05:23 2024]
+Finished job 17.
+1 of 9 steps (11%) done
+Select jobs to execute...
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule bcalm in file /home/el_fadwa1997/GCP/rules/bcalm.smk, line 1:
+Job 16  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T105751.553028.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

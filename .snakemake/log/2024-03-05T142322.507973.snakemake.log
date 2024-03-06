@@ -1,0 +1,93 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+bcalm               4
+files_path          1
+multi_fastqc        1
+reindeer            1
+total               8
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar  5 14:23:23 2024]
+Job 14:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa
+
+[Tue Mar  5 14:31:20 2024]
+Finished job 14.
+1 of 8 steps (12%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar  5 14:31:20 2024]
+Job 15:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+
+[Tue Mar  5 14:38:46 2024]
+Finished job 15.
+2 of 8 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar  5 14:38:46 2024]
+Job 12:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+
+[Tue Mar  5 14:45:53 2024]
+Finished job 12.
+3 of 8 steps (38%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar  5 14:45:53 2024]
+Job 13:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+
+[Tue Mar  5 14:50:00 2024]
+Finished job 13.
+4 of 8 steps (50%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Mar  5 14:50:01 2024]
+localrule files_path:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+    jobid: 11
+    reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/files_path.txt; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    resources: tmpdir=/tmp
+
+
+[Tue Mar  5 14:50:01 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093892.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093893.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093894.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093895.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 5
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    resources: tmpdir=/tmp
+
+[Tue Mar  5 14:50:01 2024]
+Error in rule multi_fastqc:
+    jobid: 5
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR7093892.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093893.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093894.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093895.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt (check log file(s) for error details)
+    shell:
+         multiqc -f -o /home/el_fadwa1997/Results/QC/ . > /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt 2>&1 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue Mar  5 14:50:03 2024]
+Finished job 11.
+5 of 8 steps (62%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-05T142322.507973.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

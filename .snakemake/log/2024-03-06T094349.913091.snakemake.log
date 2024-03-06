@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+multi_fastqc        1
+total               2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 09:43:50 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/QC/SRR7093892/SRR7093892_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093893/SRR7093893_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093894/SRR7093894_fastqc.html, /home/el_fadwa1997/Results/QC/SRR7093895/SRR7093895_fastqc.html
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 5
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule multi_fastqc in file /home/el_fadwa1997/GCP/rules/multiqc.smk, line 21:
+Job 5  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/el_fadwa1997/Results/QC/multiqc_report.html
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T094349.913091.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

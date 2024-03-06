@@ -1,0 +1,154 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count
+----------  -------
+all               1
+bcalm             4
+compressed        4
+files_path        1
+reindeer          1
+total            11
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 19:45:23 2024]
+Job 9:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa
+
+[Wed Mar  6 19:51:27 2024]
+Finished job 9.
+1 of 11 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 19:51:27 2024]
+Job 10:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+
+[Wed Mar  6 19:58:48 2024]
+Finished job 10.
+2 of 11 steps (18%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 19:58:48 2024]
+Job 7:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa; Updated input files: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+[Wed Mar  6 20:06:03 2024]
+Finished job 7.
+3 of 11 steps (27%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:06:03 2024]
+Job 8:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa; Code has changed since last execution
+
+[Wed Mar  6 20:10:17 2024]
+Finished job 8.
+4 of 11 steps (36%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 20:10:17 2024]
+localrule compressed:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz
+    jobid: 12
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    wildcards: sra=SRR7093893
+    resources: tmpdir=/tmp
+
+
+[Wed Mar  6 20:10:17 2024]
+localrule compressed:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa.gz
+    jobid: 14
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa.gz; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa; Code has changed since last execution
+    wildcards: sra=SRR7093895
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 20:10:33 2024]
+Finished job 12.
+5 of 11 steps (45%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:10:33 2024]
+localrule compressed:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa.gz
+    jobid: 13
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa.gz; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa
+    wildcards: sra=SRR7093894
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 20:10:42 2024]
+Finished job 14.
+6 of 11 steps (55%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:10:42 2024]
+localrule files_path:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+    jobid: 6
+    reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/files_path.txt; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 20:10:47 2024]
+Finished job 6.
+7 of 11 steps (64%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:10:47 2024]
+localrule compressed:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.gz
+    jobid: 11
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.gz; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    wildcards: sra=SRR7093892
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 20:11:00 2024]
+Finished job 13.
+8 of 11 steps (73%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:11:00 2024]
+Job 5:  RUNNING REINDEER 
+Reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz; Input files updated by another job: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+
+[Wed Mar  6 20:11:11 2024]
+Finished job 11.
+9 of 11 steps (82%) done
+[Wed Mar  6 20:15:44 2024]
+Finished job 5.
+10 of 11 steps (91%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 20:15:44 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz, /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa.gz
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz, /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.gz, /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa.gz
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 20:15:44 2024]
+Finished job 0.
+11 of 11 steps (100%) done
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz.
+Complete log: .snakemake/log/2024-03-06T194522.709777.snakemake.log

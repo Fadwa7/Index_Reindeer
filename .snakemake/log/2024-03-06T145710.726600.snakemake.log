@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count
+----------------  -------
+adapt_trimming          2
+all                     1
+bcalm                   2
+compressed_bcalm        4
+files_path              1
+reindeer                1
+total                  11
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 14:57:11 2024]
+Job 3: Trimmig FASTQS
+Reason: Forced execution
+
+[Wed Mar  6 15:02:03 2024]
+Finished job 3.
+1 of 11 steps (9%) done
+Select jobs to execute...
+Execute 3 jobs...
+
+[Wed Mar  6 15:02:04 2024]
+Job 12:  Compressing Bcalm output file /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz
+
+
+[Wed Mar  6 15:02:04 2024]
+Job 9:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz
+
+
+[Wed Mar  6 15:02:04 2024]
+Job 14:  Compressing Bcalm output file /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa.gz
+
+[Wed Mar  6 15:02:35 2024]
+Finished job 12.
+2 of 11 steps (18%) done
+Select jobs to execute...
+[Wed Mar  6 15:03:00 2024]
+Finished job 14.
+3 of 11 steps (27%) done
+Terminating processes on user request, this might take some time.

@@ -1,0 +1,109 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+compressed            4
+files_path            1
+reindeer              1
+total                15
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 15:31:45 2024]
+Job 4: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+[Wed Mar  6 15:35:41 2024]
+Finished job 4.
+1 of 15 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 15:35:41 2024]
+Job 2: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+
+[Wed Mar  6 15:38:36 2024]
+Finished job 2.
+2 of 15 steps (13%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 15:38:36 2024]
+Job 8:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+
+
+[Wed Mar  6 15:38:36 2024]
+Job 10:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093895_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+[Wed Mar  6 15:48:18 2024]
+Finished job 8.
+3 of 15 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 15:48:18 2024]
+localrule compressed:
+    input: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz
+    jobid: 12
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa.gz; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR7093893_cutadapt.unitigs.fa
+    wildcards: sra=SRR7093893
+    resources: tmpdir=/tmp
+
+[Wed Mar  6 15:49:10 2024]
+Finished job 12.
+4 of 15 steps (27%) done
+Select jobs to execute...
+[Wed Mar  6 15:51:11 2024]
+Finished job 10.
+5 of 15 steps (33%) done
+Execute 1 jobs...
+
+[Wed Mar  6 15:51:11 2024]
+Job 3: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz
+
+[Wed Mar  6 15:57:52 2024]
+Finished job 3.
+6 of 15 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 15:57:52 2024]
+Job 1: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz; Code has changed since last execution; Params have changed since last execution
+
+[Wed Mar  6 16:03:42 2024]
+Finished job 1.
+7 of 15 steps (47%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 16:03:42 2024]
+Job 7:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+
+[Wed Mar  6 16:03:42 2024]
+Job 9:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR7093894_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz
+
+[Wed Mar  6 16:13:11 2024]
+Error in rule bcalm:
+    jobid: 7
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ; bcalm -in /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz -kmer-size 31 -abundance-min 3 -out-dir /home/el_fadwa1997/Results/BCALM -nb-cores 8 -out /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt ; rm /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.glue.*;
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+

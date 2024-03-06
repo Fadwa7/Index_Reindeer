@@ -1,0 +1,101 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+files_path            1
+reindeer              1
+total                11
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 13:17:47 2024]
+Job 11: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+
+[Wed Mar  6 13:19:16 2024]
+Finished job 11.
+1 of 11 steps (9%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 13:19:16 2024]
+Job 12: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz
+
+[Wed Mar  6 13:25:37 2024]
+Finished job 12.
+2 of 11 steps (18%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 13:25:37 2024]
+Job 17:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093893_cutadapt.fastq.gz
+
+
+[Wed Mar  6 13:25:37 2024]
+Job 18:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093894_cutadapt.fastq.gz
+
+[Wed Mar  6 13:35:16 2024]
+Finished job 17.
+3 of 11 steps (27%) done
+Select jobs to execute...
+[Wed Mar  6 13:38:52 2024]
+Finished job 18.
+4 of 11 steps (36%) done
+Execute 1 jobs...
+
+[Wed Mar  6 13:38:52 2024]
+Job 10: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+[Wed Mar  6 13:44:43 2024]
+Finished job 10.
+5 of 11 steps (45%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar  6 13:44:43 2024]
+Job 13: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+[Wed Mar  6 13:50:35 2024]
+Finished job 13.
+6 of 11 steps (55%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar  6 13:50:35 2024]
+Job 19:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093895_cutadapt.fastq.gz
+
+
+[Wed Mar  6 13:50:35 2024]
+Job 16:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+
+[Wed Mar  6 13:58:57 2024]
+Error in rule bcalm:
+    jobid: 16
+    input: /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa
+    shell:
+        set +eu && . $(conda info --base)/etc/profile.d/conda.sh ; conda activate bcalm ; bcalm -in /home/el_fadwa1997/Results/Trimming/SRR7093892_cutadapt.fastq.gz -kmer-size 31 -abundance-min 3 -out-dir /home/el_fadwa1997/Results/BCALM -nb-cores 8 -out /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt ; rm /home/el_fadwa1997/Results/BCALM/SRR7093892_cutadapt.unitigs.fa.glue.*;
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Mar  6 14:02:42 2024]
+Finished job 19.
+7 of 11 steps (64%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-06T131747.409661.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -17,9 +17,9 @@ rule files_path:
 
 rule reindeer: 
         input:
-                config["RESULTS"] + "REINDEER/files_path.txt"
+                paths = config["RESULTS"] + "REINDEER/files_path.txt"
         output:
-                config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
+                index = config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz"
         params:
                 conda = "bcalm",
                 dir = config["RESULTS"] + "REINDEER/index_reindeer"
@@ -33,20 +33,13 @@ rule reindeer:
                 "set +eu && "
                 ". $(conda info --base)/etc/profile.d/conda.sh ;"
                 " conda activate {params.conda} ;"
-                "~/REINDEER/Reindeer --index -f {input} -o {params.dir} > {log} 2>&1" 
+                "~/REINDEER/Reindeer --index -f {input.paths} -o {params.dir} > {log} 2>&1 ;"
+                               
+rule compressed : 
+        input: 
+           config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa"
+        output: 
+           config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa.gz"
+        shell:
+            " gzip -c {input} > {output} ;"
 
-
-#dossier_local = config["RESULTS"] + "REINDEER/index_reindeer"
-
-# Chemin du bucket GCS et du dossier de destination
-#bucket_gcs = config["BUCKETS"]
-
-# Commande gsutil pour copier le contenu du dossier local vers GCS
-#commande_gsutil = f"gsutil -m cp -r {dossier_local}/* {bucket_gcs}"
-
-# Exécution de la commande via subprocess
-#try:
-#    subprocess.run(commande_gsutil, shell=True, check=True)
-#    print(f"Le contenu de '{dossier_local}' a été copié avec succès vers '{bucket_gcs}'.")
-#except subprocess.CalledProcessError as e:
-#    print(f"Une erreur s'est produite : {e}")
