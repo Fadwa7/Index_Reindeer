@@ -18,11 +18,14 @@ Pour configurer les outils requis dans votre machine virtuelle, exécutez le scr
 ```bash
 source installation.sh  ~/GCP/envs
 ```
+Il est recommandé de redémarer le terminal pour activer "mamba init" 
+
+
 ### Exécution du Snakemake 
 Naviguez vers le répertoire du projet, puis exécutez Snakemake :
 ```bash
 cd GCP
-snakemake -s snakefile --cores $nbcores --config sra_list=$path/to/sra_id_list/
+snakemake -s snakefile --cores $nbcores 
 ```
 ## Résultats:
 Une fois terminé, les résultats du traitement seront organisés de la manière suivante : 
