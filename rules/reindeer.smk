@@ -34,12 +34,3 @@ rule reindeer:
                 ". $(conda info --base)/etc/profile.d/conda.sh ;"
                 " conda activate {params.conda} ;"
                 "~/REINDEER/Reindeer --index -f {input.paths} -o {params.dir} > {log} 2>&1 ;"
-                               
-rule compressed : 
-        input: 
-           config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa"
-        output: 
-           config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa.gz"
-        shell:
-            " gzip -c {input} > {output} ;"
-

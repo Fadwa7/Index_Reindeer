@@ -28,18 +28,17 @@ with open(fichier_csv, 'rt') as f:
 
 rule all : 
      input: 
-           #storage.gcs(expand("Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST)),
-#           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
-#           config["RESULTS"] + "QC/multiqc_report.html",
+           expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
+           config["RESULTS"] + "QC/multiqc_report.html",
            expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
            config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-           expand(config["RESULTS"] + "BCALM/{sra}_cutadapt.unitigs.fa.gz", sra=SRA_LIST)
+
 
           
 ##### Modules #####
 
-#include: "rules/fastq.smk"
-#include: "rules/multiqc.smk"
+include: "rules/fastq.smk"
+include: "rules/multiqc.smk"
 include: "rules/trimming.smk"
 include: "rules/bcalm.smk"
 include: "rules/reindeer.smk"
