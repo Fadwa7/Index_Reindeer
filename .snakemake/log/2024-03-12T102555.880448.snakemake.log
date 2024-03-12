@@ -1,0 +1,111 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+make_fastqc         4
+multi_fastqc        1
+total               6
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Tue Mar 12 10:25:57 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866826_2.log
+    jobid: 7
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866826_2.benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.zip
+    wildcards: sra=SRR866826, reads=2
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 10:25:57 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866828_1.log
+    jobid: 4
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866828_1.benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.zip
+    wildcards: sra=SRR866828, reads=1
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 10:25:57 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866826_1.log
+    jobid: 6
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866826_1.benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.zip
+    wildcards: sra=SRR866826, reads=1
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 10:25:57 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866828_2.log
+    jobid: 5
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR866828_2.benchmark.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.zip
+    wildcards: sra=SRR866828, reads=2
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 10:26:21 2024]
+Finished job 6.
+1 of 6 steps (17%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.html.
+[Tue Mar 12 10:26:21 2024]
+Finished job 4.
+2 of 6 steps (33%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.html.
+[Tue Mar 12 10:26:21 2024]
+Finished job 5.
+3 of 6 steps (50%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.html.
+[Tue Mar 12 10:26:22 2024]
+Finished job 7.
+4 of 6 steps (67%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.html.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 10:26:22 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.zip
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/multifastqc/multifastqc.txt
+    jobid: 3
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/multiqc_report.html; Input files updated by another job: /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.zip; Set of input files has changed since last execution
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 10:26:27 2024]
+Finished job 3.
+5 of 6 steps (83%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866828/SRR866828_2_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR866826/SRR866826_2_fastqc.zip.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 10:26:27 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 10:26:27 2024]
+Finished job 0.
+6 of 6 steps (100%) done
+Complete log: .snakemake/log/2024-03-12T102555.880448.snakemake.log

@@ -26,9 +26,9 @@ rule reindeer:
         message: 
                 " RUNNING REINDEER "
         log:
-                config["RESULTS"] + "Supplementary_Data/Logs/reindeer.txt"
+                config["RESULTS"] + "Supplementary_Data/Logs/REINDEER/reindeer.txt"
         benchmark : 
-                config["RESULTS"] + "Supplementary_Data/Benchmark/reindeer.txt" 
+                config["RESULTS"] + "Supplementary_Data/Benchmark/REINDEER/reindeer.txt" 
         shell:
                 "set +eu && "
                 ". $(conda info --base)/etc/profile.d/conda.sh ;"

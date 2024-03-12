@@ -1,0 +1,45 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+fetch_fastq        2
+total              3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Mar 11 15:38:34 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz
+
+[Mon Mar 11 15:38:42 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Mar 11 15:38:42 2024]
+Job 1: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz
+
+[Mon Mar 11 15:38:51 2024]
+Finished job 1.
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Mar 11 15:38:51 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz
+    resources: tmpdir=/tmp
+
+[Mon Mar 11 15:38:51 2024]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2024-03-11T153834.515521.snakemake.log

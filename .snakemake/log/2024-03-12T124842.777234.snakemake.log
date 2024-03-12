@@ -1,0 +1,76 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+bcalm               2
+path_trimmed        2
+total               5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Mar 12 12:48:43 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR866826/SRR866826_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR866826/SRR866826_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR866826/SRR866826.txt
+    jobid: 15
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR866826/SRR866826.txt
+    wildcards: sra=SRR866826
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 12:48:43 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR866828/SRR866828_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR866828/SRR866828_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR866828/SRR866828.txt
+    jobid: 13
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR866828/SRR866828.txt
+    wildcards: sra=SRR866828
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 12:48:45 2024]
+Finished job 13.
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 12:48:45 2024]
+Job 12:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR866828_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR866828/SRR866828.txt
+
+[Tue Mar 12 12:48:45 2024]
+Finished job 15.
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 12:48:45 2024]
+Job 14:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR866826_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR866826/SRR866826.txt
+
+[Tue Mar 12 12:48:56 2024]
+Finished job 12.
+3 of 5 steps (60%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR866828/SRR866828.txt.
+[Tue Mar 12 12:48:56 2024]
+Finished job 14.
+4 of 5 steps (80%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR866826/SRR866826.txt.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 12:48:56 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR866828_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866828_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR866826_2.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html, /home/el_fadwa1997/Results/Trimming/SRR866828/SRR866828_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR866828/SRR866828_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR866826/SRR866826_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR866826/SRR866826_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/BCALM/SRR866828_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR866826_cutadapt.unitigs.fa
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR866826_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR866828_cutadapt.unitigs.fa
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 12:48:56 2024]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2024-03-12T124842.777234.snakemake.log

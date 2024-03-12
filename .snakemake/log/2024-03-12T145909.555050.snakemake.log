@@ -1,0 +1,169 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        2
+all                   1
+bcalm                 2
+fetch_fastq           2
+files_path            1
+make_fastqc           2
+multi_fastqc          1
+reindeer              1
+total                12
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 14:59:10 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+
+[Tue Mar 12 14:59:49 2024]
+Finished job 2.
+1 of 12 steps (8%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 14:59:49 2024]
+Job 7: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+
+[Tue Mar 12 15:00:19 2024]
+Finished job 7.
+2 of 12 steps (17%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:00:19 2024]
+Job 11:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz
+
+[Tue Mar 12 15:01:05 2024]
+Finished job 11.
+3 of 12 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:01:05 2024]
+Job 1: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz
+
+[Tue Mar 12 15:02:30 2024]
+Finished job 1.
+4 of 12 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:02:30 2024]
+Job 6: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz
+
+[Tue Mar 12 15:03:20 2024]
+Finished job 6.
+5 of 12 steps (42%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:03:20 2024]
+Job 10:  RUNNING BCALM 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz
+
+[Tue Mar 12 15:04:51 2024]
+Finished job 10.
+6 of 12 steps (50%) done
+Select jobs to execute...
+Execute 3 jobs...
+
+[Tue Mar 12 15:04:51 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.zip, /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/ERR12022339_fastqc.log
+    jobid: 4
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/ERR12022339_fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz
+    wildcards: sra=ERR12022339
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 15:04:51 2024]
+localrule files_path:
+    input: /home/el_fadwa1997/Results/BCALM/ERR12022339_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/ERR12022224_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+    jobid: 9
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/BCALM/ERR12022224_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/ERR12022339_cutadapt.unitigs.fa
+    resources: tmpdir=/tmp
+
+
+[Tue Mar 12 15:04:51 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.zip, /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/ERR12022224_fastqc.log
+    jobid: 5
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/ERR12022224_fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+    wildcards: sra=ERR12022224
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 15:05:05 2024]
+Finished job 9.
+7 of 12 steps (58%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:05:05 2024]
+Job 8:  RUNNING REINDEER 
+Reason: Input files updated by another job: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+
+[Tue Mar 12 15:06:16 2024]
+Finished job 5.
+8 of 12 steps (67%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.html.
+[Tue Mar 12 15:06:20 2024]
+Finished job 4.
+9 of 12 steps (75%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.html.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:06:20 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.zip, /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.zip
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/multifastqc.txt
+    jobid: 3
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/multifastqc.txt
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.zip, /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.zip
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 15:06:28 2024]
+Finished job 3.
+10 of 12 steps (83%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/ERR12022339/ERR12022339_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/ERR12022224/ERR12022224_fastqc.zip.
+[Tue Mar 12 15:06:45 2024]
+Finished job 8.
+11 of 12 steps (92%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 15:06:45 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html, /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz, /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html, /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 15:06:45 2024]
+Finished job 0.
+12 of 12 steps (100%) done
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz.
+Complete log: .snakemake/log/2024-03-12T145909.555050.snakemake.log

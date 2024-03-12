@@ -1,0 +1,39 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+fetch_fastq        2
+total              3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Mar 11 15:27:32 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR7093893_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093893_2.fastq.gz
+
+[Mon Mar 11 15:27:44 2024]
+Error in rule fetch_fastq:
+    jobid: 2
+    output: /home/el_fadwa1997/Results/Fastq_Files/SRR7093893_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR7093893_2.fastq.gz
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/SRR7093893.sratoolkit.log (check log file(s) for error details)
+    shell:
+        
+                        set +eu &&
+                        . $(conda info --base)/etc/profile.d/conda.sh &&
+                        conda activate sratoolkit
+                        prefetch SRR7093893
+                        parallel-fastq-dump                         --outdir /home/el_fadwa1997/Results/Fastq_Files                         --gzip 			--split-3
+                        --sra-id SRR7093893                         --threads 4
+                        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-11T152732.790033.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
