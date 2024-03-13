@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+reads_count        1
+total              2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 22:04:37 2024]
+localrule reads_count:
+    input: /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    jobid: 1
+    reason: Missing output files: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    resources: tmpdir=/tmp
+
+RuleException in rule reads_count in file /home/el_fadwa1997/GCP/rules/statistics.smk, line 2:
+NameError: The name '"SCRIPTS"' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}, when formatting the following:
+sh {config["SCRIPTS"]}reads_count.sh {output} {input.cut_fastq}

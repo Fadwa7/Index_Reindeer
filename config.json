@@ -1,5 +1,6 @@
 {
   "RESULTS": "/home/el_fadwa1997/Results/",
+  "SCRIPTS": "/home/el_fadwa1997/GCP/scripts/",
   "SRA_LIST": "/home/el_fadwa1997/test.csv",
   "ABUNDANCE_MIN": 3,
   "KMER_SIZE": 31,

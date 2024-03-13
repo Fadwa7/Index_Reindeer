@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+fetch_fastq        1
+total              2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 20:50:38 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+
+[Tue Mar 12 20:51:16 2024]
+Finished job 2.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 20:51:16 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 20:51:16 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/ERR12022339.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/ERR12022224.fastq.gz.
+Complete log: .snakemake/log/2024-03-12T205037.874883.snakemake.log

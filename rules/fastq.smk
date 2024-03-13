@@ -26,7 +26,7 @@ if config['SAMPLE'] == "single":
 			"""
 
 
-if config['SAMPLE'] == "paired":
+else:
 	rule fetch_fastq:
                 output:
                         fastq_1 = temp(config["RESULTS"] + "Fastq_Files/{sra}_1.fastq.gz"),

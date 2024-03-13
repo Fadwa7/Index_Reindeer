@@ -76,7 +76,7 @@ done
 
 conda activate sratoolkit 
 conda install -y -c bioconda parallel-fastq-dump ##Installing parallel-fatq-dump inside sratoolkit conda environement
-conda install -y -c bioconda::fastqc
+conda install -y -c bioconda fastqc
 yes | pip install multiqc
 
 conda init

@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+reads_count        1
+total              2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 22:08:28 2024]
+localrule reads_count:
+    input: /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    jobid: 1
+    reason: Missing output files: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 22:08:29 2024]
+Finished job 1.
+1 of 2 steps (50%) done
+Removing temporary output /home/el_fadwa1997/Results/Trimming/ERR12022339_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/ERR12022224_cutadapt.fastq.gz.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 22:08:29 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/Statistics/statistics.txt
+    resources: tmpdir=/tmp
+
+[Tue Mar 12 22:08:29 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-03-12T220828.151662.snakemake.log

@@ -10,14 +10,14 @@ import os
 
 
 
-print('   _____  _   _ ______  _____ __   __ ______  _____  _____  _   _ ______  _____  _____ ______ ')
-print('  |_   _|| \ | ||  _  \|  ___|\ \ / / | ___ \|  ___||_   _|| \ | ||  _  \|  ___||  ___|| ___ \ ')
-print('    | |  |  \| || | | || |__   \ V /  | |_/ /| |__    | |  |  \| || | | || |__  | |__  | |_/ / ')
-print('    | |  | . ` || | | ||  __|  /   \  |    / |  __|   | |  | . ` || | | ||  __| |  __| |    / ')
-print('   _| |_ | |\  || |/ / | |___ / /^\ \ | |\ \ | |___  _| |_ | |\  || |/ / | |___ | |___ | |\ \ ')
-print('   \___/ \_| \_/|___/  \____/ \/   \/ \_| \_|\____/  \___/ \_| \_/|___/  \____/ \____/ \_| \_| ')
-print('                                                                                                 ')
-print('                                                                                                 ')
+print(r'   _____  _   _ ______  _____ __   __ ______  _____  _____  _   _ ______  _____  _____ ______ ')
+print(r'  |_   _|| \ | ||  _  \|  ___|\ \ / / | ___ \|  ___||_   _|| \ | ||  _  \|  ___||  ___|| ___ \ ')
+print(r'    | |  |  \| || | | || |__   \ V /  | |_/ /| |__    | |  |  \| || | | || |__  | |__  | |_/ / ')
+print(r'    | |  | . ` || | | ||  __|  /   \  |    / |  __|   | |  | . ` || | | ||  __| |  __| |    / ')
+print(r'   _| |_ | |\  || |/ / | |___ / /^\ \ | |\ \ | |___  _| |_ | |\  || |/ / | |___ | |___ | |\ \ ')
+print(r'   \___/ \_| \_/|___/  \____/ \/   \/ \_| \_|\____/  \___/ \_| \_/|___/  \____/ \____/ \_| \_| ')
+print(r'                                                                                                 ')
+print(r'                                                                                                 ')
 
 
 
@@ -45,7 +45,7 @@ if config['SAMPLE'] =="single":
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-
+                         config["RESULTS"] + "Statistics/statistics.txt"
 
 if config['SAMPLE'] =="paired":
 	rule all : 
@@ -55,7 +55,7 @@ if config['SAMPLE'] =="paired":
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}/{sra}_{reads}_cutadapt.fastq.gz", sra=SRA_LIST, reads=config["READS"]),
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-
+                         config["RESULTS"] + "Statistics/statistics.txt"
 
           
 ##### Modules #####
@@ -68,7 +68,7 @@ if config['SAMPLE'] =="single":
 if config['SAMPLE'] =="paired":
 	include: "rules/bcalm_paired.smk"
 include: "rules/reindeer.smk"
-
+include: "rules/statistics.smk"
 ##### End messages #####
 
 onsuccess:

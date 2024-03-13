@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 2
+fetch_fastq           2
+files_path            1
+make_fastqc           4
+multi_fastqc          1
+path_trimmed          2
+reads_count           1
+reindeer              1
+total                19
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Mar 12 20:48:07 2024]
+Job 1: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/ERR12022339_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/ERR12022339_2.fastq.gz
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule fetch_fastq in file /home/el_fadwa1997/GCP/rules/fastq.smk, line 30:
+Job 1  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/el_fadwa1997/Results/Fastq_Files/ERR12022339_1.fastq.gz
+/home/el_fadwa1997/Results/Fastq_Files/ERR12022339_2.fastq.gz
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-12T204807.184241.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
