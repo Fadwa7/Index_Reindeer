@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /home/el_fadwa1997/GCP/snakefile, line 70:
+Missing input files for rule all:
+    affected files:
+        /home/el_fadwa1997/Results/Statistics/reads_count.txt
+        /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz

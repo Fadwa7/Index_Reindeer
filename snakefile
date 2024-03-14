@@ -21,6 +21,25 @@ print(r'                                                                        
 
 
 
+
+
+
+
+# register shared settings
+
+#storage:
+#        provider="gcs",
+#        max_requests_per_second= None,
+#        project= "arctic-carving-413109" ,
+#        keep_local= False ,
+#        stay_on_remote= False,
+#        retries= 5, 
+
+
+
+
+
+
 # Extraction of config file 
 
 with open('config.json', 'r') as config_file:
@@ -45,17 +64,19 @@ if config['SAMPLE'] =="single":
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-                         config["RESULTS"] + "Statistics/statistics.txt"
+                         config["RESULTS"] + "Statistics/reads_count.txt"
 
 if config['SAMPLE'] =="paired":
 	rule all : 
                 input: 
                          expand(config["RESULTS"] + "Fastq_Files/{sra}_1.fastq.gz", sra=SRA_LIST),
+#                         storage.gcs(expand("gs://ssfa_project/{sra}_1.fastq.gz", sra=SRA_LIST)),
+#                         storage.gcs(expand("gs://ssfa_project/{sra}_2.fastq.gz", sra=SRA_LIST))
                          expand(config["RESULTS"] + "Fastq_Files/{sra}_2.fastq.gz", sra=SRA_LIST),
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}/{sra}_{reads}_cutadapt.fastq.gz", sra=SRA_LIST, reads=config["READS"]),
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-                         config["RESULTS"] + "Statistics/statistics.txt"
+                         config["RESULTS"] + "Statistics/reads_count.txt"
 
           
 ##### Modules #####
@@ -69,6 +90,8 @@ if config['SAMPLE'] =="paired":
 	include: "rules/bcalm_paired.smk"
 include: "rules/reindeer.smk"
 include: "rules/statistics.smk"
+
+
 ##### End messages #####
 
 onsuccess:

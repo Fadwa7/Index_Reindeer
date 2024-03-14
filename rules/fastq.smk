@@ -29,6 +29,8 @@ if config['SAMPLE'] == "single":
 else:
 	rule fetch_fastq:
                 output:
+#                         fastq_1 = storage.gcs(expand("gs://ssfa_project/{sra}_1.fastq.gz", sra=SRA_LIST)),
+#                         fastq_2 = storage.gcs(expand("gs://ssfa_project/{sra}_2.fastq.gz", sra=SRA_LIST))
                         fastq_1 = temp(config["RESULTS"] + "Fastq_Files/{sra}_1.fastq.gz"),
                         fastq_2 = temp(config["RESULTS"] + "Fastq_Files/{sra}_2.fastq.gz")
                 log:

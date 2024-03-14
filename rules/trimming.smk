@@ -12,7 +12,7 @@ if config['SAMPLE'] == "single":
                       config["RESULTS"] + "Supplementary_Data/Benchmark/Trimming/{sra}_cutadapt.txt"
                   params:
                       conda = "cutadapt",
-                      adaptor= config["ADAPTOR"]
+                      adaptor= config["ADAPTER"]
                   threads: 8
                   shell: 
                       """
@@ -20,25 +20,26 @@ if config['SAMPLE'] == "single":
                       . $(conda info --base)/etc/profile.d/conda.sh &&
                       conda activate {params.conda} &&
                       cutadapt \
-                      -j 1 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} \
+                      -j 8 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} \
                       -a {params.adaptor} {input.fastq}  > {log} 2>&1 
                       """
 
 if config['SAMPLE'] == "paired":
         rule adapt_trimming:
                   input:
-                      fastq = config["RESULTS"] + "Fastq_Files/{sra}_{reads}.fastq.gz"
+                      R1 = config["RESULTS"] + "Fastq_Files/{sra}_1.fastq.gz",
+                      R2 = config["RESULTS"] + "Fastq_Files/{sra}_2.fastq.gz"
                   output:
-                      cut_fastq = temp(config["RESULTS"] + "Trimming/{sra}/{sra}_{reads}_cutadapt.fastq.gz")
+                      trim1 = temp(config["RESULTS"] + "Trimming/{sra}/{sra}_1_cutadapt.fastq.gz"),
+                      trim2 = temp(config["RESULTS"] + "Trimming/{sra}/{sra}_2_cutadapt.fastq.gz")
                   message:
                       "Trimmig FASTQS"
                   log:
-                      config["RESULTS"] + "Supplementary_Data/Logs/Trimming/{sra}_{reads}_cutadapt.log"
+                      config["RESULTS"] + "Supplementary_Data/Logs/Trimming/{sra}_cutadapt.log"
                   benchmark:
-                      config["RESULTS"] + "Supplementary_Data/Benchmark/Trimming/{sra}_{reads}_cutadapt.txt"
+                      config["RESULTS"] + "Supplementary_Data/Benchmark/Trimming/{sra}_cutadapt.txt"
                   params:
-                      conda = "cutadapt",
-                      adaptor= config["ADAPTOR"]
+                      conda = "cutadapt"                      
                   threads: 8
                   shell:
                       """
@@ -46,6 +47,6 @@ if config['SAMPLE'] == "paired":
                       . $(conda info --base)/etc/profile.d/conda.sh &&
                       conda activate {params.conda} &&
                       cutadapt \
-                      -j 1 -q 20 -m 20 --cores {threads} -o {output.cut_fastq} \
-                      -a {params.adaptor} {input.fastq}  > {log} 2>&1
+                      -j 8 -q 20 -m 20 --cores {threads} -o {output.trim1} -p {output.trim2} -a {config[ADAPTER_R1]} -A {config[ADAPTER_R2]} \
+                      {input.R1} {input.R2}  > {log} 2>&1
                       """

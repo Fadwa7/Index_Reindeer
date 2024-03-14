@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        3
+all                   1
+bcalm                 3
+fetch_fastq           2
+files_path            1
+make_fastqc           4
+multi_fastqc          1
+path_trimmed          3
+reads_count           1
+reindeer              1
+total                20
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:54:16 2024]
+Job 11: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_2_cutadapt.fastq.gz; Updated input files: /home/el_fadwa1997/Results/Fastq_Files/SRR28293179_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293179_2.fastq.gz
+
+RuleException in rule adapt_trimming in file /home/el_fadwa1997/GCP/rules/trimming.smk, line 28:
+NameError: The name 'ADAPTER_R2"' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}, when formatting the following:
+
+                      set +eu &&
+                      . $(conda info --base)/etc/profile.d/conda.sh &&
+                      conda activate {params.conda} &&
+                      cutadapt                       -j 8 -q 20 -m 20 --cores {threads} -o {output.trim1} -p {output.trim2} -a {config[ADAPTER_R1]} -A {config[ADAPTER_R2"]}                       {input.R1} {input.R2}  > {log} 2>&1
+                      

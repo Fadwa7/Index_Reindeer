@@ -1,0 +1,216 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        3
+all                   1
+bcalm                 3
+fetch_fastq           2
+files_path            1
+make_fastqc           4
+multi_fastqc          1
+path_trimmed          3
+reads_count           1
+reindeer              1
+total                20
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:54:39 2024]
+Job 11: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz; Updated input files: /home/el_fadwa1997/Results/Fastq_Files/SRR28293179_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293179_1.fastq.gz
+
+[Wed Mar 13 13:55:16 2024]
+Finished job 11.
+1 of 20 steps (5%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:55:16 2024]
+Job 3: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_2.fastq.gz
+
+[Wed Mar 13 13:56:24 2024]
+Finished job 3.
+2 of 20 steps (10%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar 13 13:56:24 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28293143_2_fastqc.log
+    jobid: 10
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28293143_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_2.fastq.gz
+    wildcards: sra=SRR28293143, reads=2
+    resources: tmpdir=/tmp
+
+
+[Wed Mar 13 13:56:24 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28293179/SRR28293179.txt
+    jobid: 17
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28293179/SRR28293179.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz
+    wildcards: sra=SRR28293179
+    resources: tmpdir=/tmp
+
+[Wed Mar 13 13:56:26 2024]
+Finished job 17.
+3 of 20 steps (15%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:56:27 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28293143_1_fastqc.log
+    jobid: 9
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28293143_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_1.fastq.gz
+    wildcards: sra=SRR28293143, reads=1
+    resources: tmpdir=/tmp
+
+[Wed Mar 13 13:56:50 2024]
+Finished job 10.
+4 of 20 steps (20%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_2_fastqc.html.
+Select jobs to execute...
+[Wed Mar 13 13:56:51 2024]
+Finished job 9.
+5 of 20 steps (25%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28293143/SRR28293143_1_fastqc.html.
+Execute 1 jobs...
+
+[Wed Mar 13 13:56:51 2024]
+Job 13: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293143_2.fastq.gz
+
+[Wed Mar 13 13:57:30 2024]
+Finished job 13.
+6 of 20 steps (30%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:57:30 2024]
+Job 16:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28293179_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28293179/SRR28293179.txt
+
+[Wed Mar 13 13:58:50 2024]
+Finished job 16.
+7 of 20 steps (35%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR28293179/SRR28293179.txt.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 13:58:50 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_1.fastq.gz
+
+[Wed Mar 13 14:00:18 2024]
+Finished job 2.
+8 of 20 steps (40%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar 13 14:00:18 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28293157_2_fastqc.log
+    jobid: 8
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28293157_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_2.fastq.gz
+    wildcards: sra=SRR28293157, reads=2
+    resources: tmpdir=/tmp
+
+
+[Wed Mar 13 14:00:18 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28293143/SRR28293143.txt
+    jobid: 21
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28293143/SRR28293143.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz
+    wildcards: sra=SRR28293143
+    resources: tmpdir=/tmp
+
+[Wed Mar 13 14:00:24 2024]
+Finished job 21.
+9 of 20 steps (45%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Mar 13 14:00:24 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28293157_1_fastqc.log
+    jobid: 7
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28293157_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_1.fastq.gz
+    wildcards: sra=SRR28293157, reads=1
+    resources: tmpdir=/tmp
+
+[Wed Mar 13 14:01:05 2024]
+Finished job 8.
+10 of 20 steps (50%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_2_fastqc.html.
+Select jobs to execute...
+[Wed Mar 13 14:01:08 2024]
+Finished job 7.
+11 of 20 steps (55%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28293157/SRR28293157_1_fastqc.html.
+Execute 1 jobs...
+
+[Wed Mar 13 14:01:08 2024]
+Job 12: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_2_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28293157_1.fastq.gz
+
+[Wed Mar 13 14:02:08 2024]
+Finished job 12.
+12 of 20 steps (60%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Mar 13 14:02:08 2024]
+localrule reads_count:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/Statistics/reads_count.txt
+    jobid: 22
+    reason: Missing output files: /home/el_fadwa1997/Results/Statistics/reads_count.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz
+    resources: tmpdir=/tmp
+
+
+[Wed Mar 13 14:02:08 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28293157/SRR28293157.txt
+    jobid: 19
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28293157/SRR28293157.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_2_cutadapt.fastq.gz
+    wildcards: sra=SRR28293157
+    resources: tmpdir=/tmp
+
+[Wed Mar 13 14:02:08 2024]
+Error in rule reads_count:
+    jobid: 22
+    input: /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/Statistics/reads_count.txt
+    shell:
+        ./scripts/reads_count.sh /home/el_fadwa1997/Results/Statistics/reads_count.txt /home/el_fadwa1997/Results/Trimming/SRR28293179/SRR28293179_1_cutadapt.fastq.gz /home/el_fadwa1997/Results/Trimming/SRR28293157/SRR28293157_1_cutadapt.fastq.gz /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz /home/el_fadwa1997/Results/Trimming/SRR28293143/SRR28293143_1_cutadapt.fastq.gz
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Mar 13 14:02:11 2024]
+Finished job 19.
+13 of 20 steps (65%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-03-13T135439.267442.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,10 +1,12 @@
 {
   "RESULTS": "/home/el_fadwa1997/Results/",
   "SCRIPTS": "/home/el_fadwa1997/GCP/scripts/",
-  "SRA_LIST": "/home/el_fadwa1997/test.csv",
+  "SRA_LIST": "/home/el_fadwa1997/paired.csv",
   "ABUNDANCE_MIN": 3,
   "KMER_SIZE": 31,
-  "ADAPTOR": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
-  "SAMPLE": "single",
+  "ADAPTER": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+  "ADAPTER_R1": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",
+  "ADAPTER_R2": "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT", 
+  "SAMPLE": "paired",
   "READS": ["1", "2"]
 }

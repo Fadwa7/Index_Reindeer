@@ -1,0 +1,418 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+adapt_trimming        4
+all                   1
+bcalm                 4
+fetch_fastq           4
+files_path            1
+make_fastqc           8
+multi_fastqc          1
+path_trimmed          4
+reads_count           1
+reindeer              1
+total                29
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:11:37 2024]
+Job 4: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz
+
+[Thu Mar 14 09:12:13 2024]
+Finished job 4.
+1 of 29 steps (3%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:12:13 2024]
+Job 17: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz
+
+[Thu Mar 14 09:12:34 2024]
+Finished job 17.
+2 of 29 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:12:34 2024]
+Job 1: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz
+
+[Thu Mar 14 09:13:07 2024]
+Finished job 1.
+3 of 29 steps (10%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Thu Mar 14 09:13:07 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28245748_2_fastqc.log
+    jobid: 13
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28245748_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz
+    wildcards: sra=SRR28245748, reads=2
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:13:07 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28245748_1_fastqc.log
+    jobid: 12
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28245748_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz
+    wildcards: sra=SRR28245748, reads=1
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:13:07 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28245748/SRR28245748.txt
+    jobid: 27
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28245748/SRR28245748.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz
+    wildcards: sra=SRR28245748
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:13:07 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28287964_2_fastqc.log
+    jobid: 7
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28287964_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz
+    wildcards: sra=SRR28287964, reads=2
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:13:13 2024]
+Finished job 27.
+4 of 29 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:13:13 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28287964_1_fastqc.log
+    jobid: 6
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28287964_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz
+    wildcards: sra=SRR28287964, reads=1
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:13:53 2024]
+Finished job 13.
+5 of 29 steps (17%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.html.
+Select jobs to execute...
+[Thu Mar 14 09:13:53 2024]
+Finished job 12.
+6 of 29 steps (21%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.html.
+[Thu Mar 14 09:13:54 2024]
+Finished job 7.
+7 of 29 steps (24%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.html.
+[Thu Mar 14 09:13:57 2024]
+Finished job 6.
+8 of 29 steps (28%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.html.
+Execute 1 jobs...
+
+[Thu Mar 14 09:13:57 2024]
+Job 14: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz
+
+[Thu Mar 14 09:14:28 2024]
+Finished job 14.
+9 of 29 steps (31%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:14:28 2024]
+Job 26:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28245748_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28245748/SRR28245748.txt
+
+[Thu Mar 14 09:15:23 2024]
+Finished job 26.
+10 of 29 steps (34%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR28245748/SRR28245748.txt.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:15:23 2024]
+Job 3: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz
+
+[Thu Mar 14 09:15:55 2024]
+Finished job 3.
+11 of 29 steps (38%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:15:55 2024]
+Job 16: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz
+
+[Thu Mar 14 09:16:20 2024]
+Finished job 16.
+12 of 29 steps (41%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Thu Mar 14 09:16:20 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28294521/SRR28294521.txt
+    jobid: 25
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28294521/SRR28294521.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz
+    wildcards: sra=SRR28294521
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:16:20 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28294521_2_fastqc.log
+    jobid: 11
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28294521_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz
+    wildcards: sra=SRR28294521, reads=2
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:16:20 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28294521_1_fastqc.log
+    jobid: 10
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28294521_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz
+    wildcards: sra=SRR28294521, reads=1
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:16:20 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28287964/SRR28287964.txt
+    jobid: 21
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28287964/SRR28287964.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz
+    wildcards: sra=SRR28287964
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:16:34 2024]
+Finished job 25.
+13 of 29 steps (45%) done
+Select jobs to execute...
+[Thu Mar 14 09:16:35 2024]
+Finished job 21.
+14 of 29 steps (48%) done
+[Thu Mar 14 09:16:59 2024]
+Finished job 10.
+15 of 29 steps (52%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.html.
+[Thu Mar 14 09:17:00 2024]
+Finished job 11.
+16 of 29 steps (55%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.html.
+Execute 1 jobs...
+
+[Thu Mar 14 09:17:00 2024]
+Job 20:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28287964_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28287964/SRR28287964.txt
+
+[Thu Mar 14 09:18:02 2024]
+Finished job 20.
+17 of 29 steps (59%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR28287964/SRR28287964.txt.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:18:02 2024]
+Job 24:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28294521_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28294521/SRR28294521.txt
+
+[Thu Mar 14 09:18:55 2024]
+Finished job 24.
+18 of 29 steps (62%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR28294521/SRR28294521.txt.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:18:55 2024]
+Job 2: fetch fastq from NCBI
+Reason: Missing output files: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz
+
+[Thu Mar 14 09:19:31 2024]
+Finished job 2.
+19 of 29 steps (66%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:19:31 2024]
+Job 15: Trimmig FASTQS
+Reason: Missing output files: /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz
+
+[Thu Mar 14 09:19:57 2024]
+Finished job 15.
+20 of 29 steps (69%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Thu Mar 14 09:19:58 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28292007_1_fastqc.log
+    jobid: 8
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28292007_1.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz
+    wildcards: sra=SRR28292007, reads=1
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:19:58 2024]
+localrule reads_count:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/Statistics/reads_count.txt
+    jobid: 28
+    reason: Missing output files: /home/el_fadwa1997/Results/Statistics/reads_count.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:19:58 2024]
+localrule path_trimmed:
+    input: /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz
+    output: /home/el_fadwa1997/Results/BCALM/SRR28292007/SRR28292007.txt
+    jobid: 23
+    reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28292007/SRR28292007.txt; Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz
+    wildcards: sra=SRR28292007
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:19:58 2024]
+localrule make_fastqc:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz
+    output: /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/SRR28292007_2_fastqc.log
+    jobid: 9
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/SRR28292007_2.fastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.zip; Input files updated by another job: /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz
+    wildcards: sra=SRR28292007, reads=2
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:19:58 2024]
+Finished job 28.
+21 of 29 steps (72%) done
+[Thu Mar 14 09:20:08 2024]
+Finished job 23.
+22 of 29 steps (76%) done
+Select jobs to execute...
+[Thu Mar 14 09:20:34 2024]
+Finished job 8.
+23 of 29 steps (79%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.html.
+[Thu Mar 14 09:20:35 2024]
+Finished job 9.
+24 of 29 steps (83%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.html.
+Execute 1 jobs...
+
+[Thu Mar 14 09:20:35 2024]
+Job 22:  RUNNING BCALM 
+Reason: Missing output files: /home/el_fadwa1997/Results/BCALM/SRR28292007_cutadapt.unitigs.fa; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28292007/SRR28292007.txt
+
+[Thu Mar 14 09:21:25 2024]
+Finished job 22.
+25 of 29 steps (86%) done
+Removing temporary output /home/el_fadwa1997/Results/BCALM/SRR28292007/SRR28292007.txt.
+Select jobs to execute...
+Execute 2 jobs...
+
+[Thu Mar 14 09:21:25 2024]
+localrule multi_fastqc:
+    input: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.zip
+    output: /home/el_fadwa1997/Results/QC/multiqc_report.html
+    log: /home/el_fadwa1997/Results/Supplementary_Data/Logs/QC/multifastqc.txt
+    jobid: 5
+    benchmark: /home/el_fadwa1997/Results/Supplementary_Data/Benchmark/QC/multifastqc.txt
+    reason: Missing output files: /home/el_fadwa1997/Results/QC/multiqc_report.html; Input files updated by another job: /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.zip, /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.zip
+    resources: tmpdir=/tmp
+
+
+[Thu Mar 14 09:21:25 2024]
+localrule files_path:
+    input: /home/el_fadwa1997/Results/BCALM/SRR28287964_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28292007_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28294521_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28245748_cutadapt.unitigs.fa
+    output: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+    jobid: 19
+    reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/files_path.txt; Input files updated by another job: /home/el_fadwa1997/Results/BCALM/SRR28287964_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28245748_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28294521_cutadapt.unitigs.fa, /home/el_fadwa1997/Results/BCALM/SRR28292007_cutadapt.unitigs.fa
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:21:29 2024]
+Finished job 19.
+26 of 29 steps (90%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:21:29 2024]
+Job 18:  RUNNING REINDEER 
+Reason: Missing output files: /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz; Input files updated by another job: /home/el_fadwa1997/Results/REINDEER/files_path.txt
+
+[Thu Mar 14 09:21:38 2024]
+Finished job 5.
+27 of 29 steps (93%) done
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28287964/SRR28287964_2_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28292007/SRR28292007_2_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28294521/SRR28294521_2_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_1_fastqc.zip.
+Removing temporary output /home/el_fadwa1997/Results/QC/SRR28245748/SRR28245748_2_fastqc.zip.
+[Thu Mar 14 09:22:55 2024]
+Finished job 18.
+28 of 29 steps (97%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Mar 14 09:22:55 2024]
+localrule all:
+    input: /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz, /home/el_fadwa1997/Results/Statistics/reads_count.txt
+    jobid: 0
+    reason: Input files updated by another job: /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz, /home/el_fadwa1997/Results/Statistics/reads_count.txt, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/QC/multiqc_report.html, /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz, /home/el_fadwa1997/Results/REINDEER/index_reindeer/reindeer_index.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz, /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz, /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz
+    resources: tmpdir=/tmp
+
+[Thu Mar 14 09:22:55 2024]
+Finished job 0.
+29 of 29 steps (100%) done
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_2.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28287964_1.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_1.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28292007_2.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_1.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28294521_2.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_1.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Fastq_Files/SRR28245748_2.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_1_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28287964/SRR28287964_2_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_1_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28292007/SRR28292007_2_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_2_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28294521/SRR28294521_1_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_1_cutadapt.fastq.gz.
+Removing temporary output /home/el_fadwa1997/Results/Trimming/SRR28245748/SRR28245748_2_cutadapt.fastq.gz.
+Complete log: .snakemake/log/2024-03-14T091135.710700.snakemake.log
