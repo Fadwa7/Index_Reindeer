@@ -23,7 +23,8 @@ pas obligatoire dans le cas d'utilisation de VM IFB
 
 
 ### Exécution du Snakemake 
-Naviguez vers le répertoire du projet, puis exécutez Snakemake :
+Naviguez vers le répertoire GCP, et avant d'exécuter le pipeline, veuillez modifier les paramètres sur le fichier "config.json".
+Puis exécutez Snakemake :
 ```bash
 cd GCP
 snakemake -s snakefile --cores $nbcores 
