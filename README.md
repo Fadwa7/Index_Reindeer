@@ -33,13 +33,14 @@ Une fois terminé, les résultats du traitement seront organisés de la manière
 ```bash
 .
 ├── BCALM
-│   └── ${sample}_cutadapt.unitigs.fa
 ├── QC
 │   ├── multiqc_data
 │   └── multiqc_report.html
 ├── REINDEER
 │   ├── files_path.txt
 │   └── index_reindeer
+├── Statistics
+│   └── reads_count.txt
 └── Supplementary_Data
     ├── Benchmark
     └── Logs
