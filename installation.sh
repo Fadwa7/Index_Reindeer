@@ -1,5 +1,3 @@
-####### TODO : Add multiqc "pip install multiqc" 
-
 #!/bin/bash -i
 
 directory=$1
@@ -21,22 +19,26 @@ sudo apt -y install cmake g++
 cd
 home=$(pwd)
 
-## INSTALLATION de CONDA
-echo "####"
-echo " "
-echo "Installation de Conda"
-echo " "
-echo " "
-cd
-mkdir -p miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
-bash miniconda3/miniconda.sh -b -u -p miniconda3
 
-echo 'export PATH='$home'/miniconda3/bin:$PATH'  >> ~/.bashrc
+if ! which conda &> /dev/null; then
+    # Si Conda n'est pas installé, télécharger et installer Miniconda
+    echo "####"
+    echo " "
+    echo "Installation de Conda"
+    echo " "
+    echo " "
+    cd "$HOME"
+    mkdir -p miniconda3
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda3/miniconda.sh
+    bash miniconda3/miniconda.sh -b -u -p miniconda3
+    echo 'export PATH='$home'/miniconda3/bin:$PATH'  >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+# Initialiser Conda
+conda init bash
 source ~/.bashrc
 
-conda init bash  # Initialise Conda pour la prise en charge du terminal bash actuel
-source ~/.bashrc
 
 ## INSTALLATION de CONDA
 echo "####"
@@ -97,9 +99,6 @@ git clone --recursive https://github.com/kamimrcht/REINDEER.git
 cd REINDEER
 sh install.sh 
 
-echo "Verfication"
-
-sh test.sh 
 
 cd
 mamba init
