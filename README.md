@@ -18,7 +18,8 @@ Pour configurer les outils requis dans votre machine virtuelle, exécutez le scr
 ```bash
 source installation.sh  ~/GCP/envs
 ```
-Il est recommandé de redémarer le terminal pour activer "mamba init" 
+Sur GCP , il est recommandé de redémarer le terminal pour activer "mamba init" 
+pas obligatoire dans le cas d'utilisation de VM IFB
 
 
 ### Exécution du Snakemake 
