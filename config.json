@@ -1,7 +1,7 @@
 {
-  "RESULTS": "/home/el_fadwa1997/Results/",
+  "RESULTS": "/home/el_fadwa1997/Results_PRJEB45290/",
   "SCRIPTS": "/home/el_fadwa1997/GCP/scripts/",
-  "SRA_LIST": "/home/el_fadwa1997/paired.csv",
+  "SRA_LIST": "/home/el_fadwa1997/paired_PRJEB45290.csv",
   "ABUNDANCE_MIN": 3,
   "KMER_SIZE": 31,
   "ADAPTER": "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA",

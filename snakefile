@@ -63,8 +63,9 @@ if config['SAMPLE'] =="single":
                          expand(config["RESULTS"] + "Fastq_Files/{sra}.fastq.gz", sra=SRA_LIST),
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}_cutadapt.fastq.gz", sra=SRA_LIST),
+                         config["RESULTS"] + "Statistics/reads_count.txt",
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-                         config["RESULTS"] + "Statistics/reads_count.txt"
+
 
 if config['SAMPLE'] =="paired":
 	rule all : 
@@ -75,8 +76,8 @@ if config['SAMPLE'] =="paired":
                          expand(config["RESULTS"] + "Fastq_Files/{sra}_2.fastq.gz", sra=SRA_LIST),
                          config["RESULTS"] + "QC/multiqc_report.html",
                          expand(config["RESULTS"] + "Trimming/{sra}/{sra}_{reads}_cutadapt.fastq.gz", sra=SRA_LIST, reads=config["READS"]),
+                         config["RESULTS"] + "Statistics/reads_count.txt",
                          config["RESULTS"] + "REINDEER/index_reindeer/reindeer_index.gz",
-                         config["RESULTS"] + "Statistics/reads_count.txt"
 
           
 ##### Modules #####
@@ -84,12 +85,12 @@ if config['SAMPLE'] =="paired":
 include: "rules/fastq.smk"
 include: "rules/multiqc.smk"
 include: "rules/trimming.smk"
+include: "rules/statistics.smk"
 if config['SAMPLE'] =="single":
 	include: "rules/bcalm_single.smk"
 if config['SAMPLE'] =="paired":
 	include: "rules/bcalm_paired.smk"
 include: "rules/reindeer.smk"
-include: "rules/statistics.smk"
 
 
 ##### End messages #####
