@@ -8,7 +8,7 @@ Connectez-vous à votre instance VM.
 Téléchargez le contenu du référentiel GitHub sur votre machine en utilisant la commande `git clone` :
 
 ```bash
-git clone https://github.com/Fadwa7/GCP.git
+git clone https://github.com/Fadwa7/Index_Reindeer.git
 ```
 
 ## Installation des outils
@@ -16,7 +16,7 @@ git clone https://github.com/Fadwa7/GCP.git
 Pour configurer les outils requis dans votre machine virtuelle, exécutez le script suivant en donnant le chemin vers le répertoire contenant les fichier yml.
 
 ```bash
-source installation.sh  ~/GCP/envs
+source installation.sh  ~/Index_Reindeer/envs
 ```
 Sur GCP , il est recommandé de redémarer le terminal pour activer "mamba init" et exécuter "mamba activate snakemake". 
 Pas obligatoire dans le cas d'utilisation de VM IFB
@@ -26,7 +26,7 @@ Pas obligatoire dans le cas d'utilisation de VM IFB
 Naviguez vers le répertoire GCP, et avant d'exécuter le pipeline, veuillez modifier les paramètres sur le fichier "config.json".
 Puis exécutez Snakemake :
 ```bash
-cd GCP
+cd Index_Reindeer
 snakemake -s snakefile --cores $nbcores 
 ```
 ## Résultats:
