@@ -1,0 +1,12 @@
+RESULTS: "/shared/projects/index_reindeer/Index_Reindeer/Results/"
+__comment__: "/shared/projects/index_reindeer/Index_Reindeer/list.csv"
+#SRA_LIST: "/shared/projects/index_reindeer/Index_Reindeer/list.csv"
+SRA_LIST: ""
+FASTQ_FILES: "/shared/projects/index_reindeer/Index_Reindeer/fastq_paired"
+ABUNDANCE_MIN: 3
+KMER_SIZE: 31
+ADAPTER: "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA"
+ADAPTER_R1: "AGATCGGAAGAGCACACGTCTGAACTCCAGTCA"
+ADAPTER_R2: "AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
+SAMPLE: "paired"
+READS: [1 , 2]
